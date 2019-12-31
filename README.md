@@ -32,7 +32,7 @@ Things you may want to cover:
 ##  usersテーブル
 
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |email|string|null: false,unique: true|
 |name |string|null: false|
 |password |string|null: false|
@@ -107,7 +107,7 @@ Things you may want to cover:
 
 ## eventsテーブル
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |title|string|null: false|
 |description|text|null: false|
 |status|string|null: false|
@@ -134,7 +134,7 @@ Things you may want to cover:
 
 ## exhibitorsテーブル
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |name|string|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |event_id|integer|null: false, foreign_key: true|
@@ -149,7 +149,7 @@ Things you may want to cover:
 
 ## commentsテーブル
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |comment|text||
 |user_id|integer|null: false, foreign_key: true|
 |event_id|integer|null: false, foreign_key: true|
@@ -162,7 +162,7 @@ Things you may want to cover:
 ## prefecturesテーブル
 
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |name|string|null: false|
 
 ### Association
@@ -175,7 +175,7 @@ Things you may want to cover:
 ## categoriesテーブル
 
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |name|string|null: false|
 |ancestry|string|index?|
 
@@ -188,7 +188,7 @@ Things you may want to cover:
 ## imagesテーブル
 
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |image|text|null: false|
 |event_id|integer|null: false, foreign_key: true|
 
@@ -198,7 +198,7 @@ Things you may want to cover:
 
 ## membersテーブル
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |user_id|integer|null: false,foreign_key: true|
 |group_id|integer|null: false,foreign_key: true|
 
@@ -208,7 +208,7 @@ Things you may want to cover:
 
 ## messagesテーブル
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |group_id|integer|null: false, foreign_key: true|
 |user_id |integer|null: false, foreign_key: true|
 |body|text|
@@ -220,7 +220,7 @@ Things you may want to cover:
 
 ## groupsテーブル
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |name|string|null: false|
 
 ### Association
@@ -230,7 +230,7 @@ Things you may want to cover:
 
 ## cardsテーブル
 |Column|Type|Options|
-|———|——|———|
+|------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
