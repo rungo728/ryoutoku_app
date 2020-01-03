@@ -29,6 +29,9 @@ Things you may want to cover:
 <br>料理も手軽に体験できて、食べられる体験シェアマッチングアプリです。
 
 # DB設計
+
+## ER図
+<img width="1194" alt="スクリーンショット 2020-01-03 20.28.23" src="https://raw.githubusercontent.com/rungo728/ryoutoku_app/master/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202020-01-03%2020.28.23.png">
 ##  usersテーブル
 
 |Column|Type|Options|
@@ -64,8 +67,8 @@ Things you may want to cover:
 |last_name_kana|string|null: false|
 |first_name_kana|string|null: false|
 |birthday|date|null: false|
-|postcode|string||
 |prefecture_id|integer|foreign_key: true|
+|postcode|string||
 |city|string||
 |address|string||
 |building|string||
@@ -88,21 +91,19 @@ Things you may want to cover:
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
-|last_name|string|null: false|
-|first_name|string|null: false|
-|last_name_kana|string|null: false|
-|first_name_kana|string|null: false|
-|postcode|string|null: false|
+|event_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
+|postcode|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
 |phone_number_sub|string||
+|figure|text|null: false|
 
 
 ### Association
 
-- belongs_to :user
+- belongs_to :event
 - belongs_to :prefecture
 
 ## eventsテーブル
@@ -111,13 +112,13 @@ Things you may want to cover:
 |title|string|null: false|
 |description|text|null: false|
 |status|string|null: false|
-|remainder|string|null: false|
+|capacity|string|null: false|
 |price|integer|null: false|
-|exhibitors_id|integer|null: false, foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
+|exhibitor_id|integer|null: false, foreign_key: true|
 |buyer_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
-|category_id|integer|null: false, foreign_key: true|
-|article_id|integer|null: false, foreign_key: true|
+
 
 ### Association
 
@@ -238,7 +239,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-
+<!-- 
 ## articlesテーブル
 ## evaluationsテーブル
-## likesテーブル
+## likesテーブル -->
