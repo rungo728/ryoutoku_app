@@ -31,7 +31,7 @@ Things you may want to cover:
 # DB設計
 
 ## ER図
-<img width="1194" alt="スクリーンショット 2020-01-03 20.28.23" src="https://raw.githubusercontent.com/rungo728/ryoutoku_app/master/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202020-01-03%2020.28.23.png">
+<img width="1194" alt="スクリーンショット 2020-01-03 20.28.23" src="https://github.com/rungo728/ryoutoku_app/blob/master/app/assets/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202020-01-03%2020.28.23.png">
 
 ##  usersテーブル
 
