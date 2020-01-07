@@ -1,0 +1,36 @@
+.footer-exhibit-btn{
+  position: fixed;
+  bottom: -14px;
+  right: -14px;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #02c39a;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  div{
+    margin: 14px 0 0;
+  }
+  .fa-chalkboard-teacher{
+    margin: 4px 0 0;
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 768px){
+.footer-exhibit-btn{
+  bottom: 32px;
+  right: 32px;
+  width: 160px;
+  height: 160px;
+  font-size: 22px;
+  div{
+    margin: 32px 0 0;
+  }
+  .fa-chalkboard-teacher{
+    margin: 8px 0 0;
+    font-size: 54px;
+  }
+}
+} 
