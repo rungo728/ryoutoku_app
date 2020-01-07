@@ -1,0 +1,21 @@
+<div class="header-container">
+  <div class="join-menu">
+    <%= link_to "#" do %>
+      <i class="fas fa-calendar-check"></i>
+      <span>参加してみよう！</span>
+    <% end %>
+  </div>
+    <%# <% if user_signed_in? %> 
+      <%# ログイン時 %>
+    <%# <div class="nav-menu">
+    </div> %>
+    <%# <% else %> 
+      <%# 未ログイン時 %>
+  <div class="nav-menu">
+    <%= link_to '新規会員','',class: "nav-menu__registration"%> 
+
+    <%= link_to 'ログイン','',class: "nav-menu__login"%>
+  </div>
+  <%# <% end %>
+
+</div>
