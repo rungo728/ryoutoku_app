@@ -2,10 +2,11 @@
   position: relative;
   width: 100%;
   margin: 0 auto;
-  height: 50px;
+  padding-top: 6px;
+  height: 60px;
   box-sizing: border-box;
   mix-width: 500px;
-
+  z-index: 3;
   .join-menu {
     position: absolute;
     left: 0;
@@ -33,9 +34,10 @@
     }
   }
   .nav-menu{
-    display: inline-block;
     float: right;
-    padding: 0 1.2rem;
+    height: 50px;
+    width: 225px;
+    line-height: 50px;
     &__registration{
       color: rgb(255, 255, 255);
       margin: 7px 8px;
@@ -47,46 +49,49 @@
       border-radius: 4px;
       background: #02c39a;
       border-color: #02c39a;
-      line-height: 42px;
+      line-height: 40px;
     }
     &__login{
+      color: #02C39A;
+      margin: 0 7px 8px;
       float: right;
       text-align: center;
-      color: #02C39A;
       font-size: 15px;
       border-radius: 4px;
       background: rgb(255, 255, 255);
       border :1px solid rgb(0, 149, 238);
       padding: 2px 8px;
-      line-height: 37px;
+      line-height: 42px;
     }
     .user-information{
-      margin-left: 16px;
+      margin-right: 16px;
+      display: inline-block;
+      line-height: 50px;
+
       a{
         display: flex;
-        height: 32px;
+        height: 38px;
         -webkit-box-pack: center;
         justify-content: center;
         position: relative;
-        width: 32px;
-        .icon{
-          max-width: 100%;
-          height: auto;
-          max-height: 100%;
-          color: rgb(204, 204, 204);
-          width: 22px;
-          font-size: 22px;
-        }
-        .icon:before{
-          margin-top: 5px;
-        }
+        width: 38px;
         img{
-          height: 32px;
-          width: 32px;
+          height: 38px;
+          width: 38px;
           border-radius: 50%;
           overflow: hidden;
         }
       }
+      span{
+        width: 128px;
+        padding: 0 10px 0 8px;
+        vertical-align: middle;
+        bottom: 0;
+      }
+    }
+    // 仮置きのプロパティ
+    .user-logout{
+      display: inline-block;
     }
   }
   .center-row__search {
