@@ -73,6 +73,8 @@ group :production do
 end
 # アイコンを表示させるためのgem
 gem 'font-awesome-sass'
+# デバックツールを作成するためのgem
+gem 'pry-rails'
 
 gem 'devise'
 gem 'haml-rails'
