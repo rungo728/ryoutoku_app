@@ -5,17 +5,31 @@
       <span>参加してみよう！</span>
     <% end %>
   </div>
-    <%# <% if user_signed_in? %> 
+    <% if user_signed_in? %> 
       <%# ログイン時 %>
-    <%# <div class="nav-menu">
-    </div> %>
-    <%# <% else %> 
+      <div class="nav-menu">
+        <div class="user-information">
+          <%# ここはマイページ画面に遷移するパスを入れる予定 %>
+          <%= link_to "" do %>
+            <%# あとでここにアイコンの写真が入るようにする %>
+            <%= image_tag 'mrkr-icon.png' %>
+          <% end %>
+        </div>
+        <div class="user-information">
+          <span><%= @user.nickname %></span>
+        </div>
+        <%# 仮置きのクラス、あとでログアウトページも作る予定 %>
+        <div class="user-logout">
+         <%=  link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-default btn-green"%>
+        
+      </div> 
+    <% else %> 
       <%# 未ログイン時 %>
-  <div class="nav-menu">
-    <%= link_to '新規会員','',class: "nav-menu__registration"%> 
+      <div class="nav-menu">
+        <%= link_to '新規会員','/users/sign_up',class: "nav-menu__registration"%> 
 
-    <%= link_to 'ログイン','',class: "nav-menu__login"%>
-  </div>
-  <%# <% end %>
+        <%= link_to 'ログイン','/users/sign_in',class: "nav-menu__login"%>
+      </div>
+    <% end %>
 
 </div>
