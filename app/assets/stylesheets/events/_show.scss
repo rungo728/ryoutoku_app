@@ -1,0 +1,46 @@
+
+.event-box-container {
+  width: 100%;
+  margin: 40px auto 0;
+  padding: 24px 16px 55px 16px;
+  background-color: #fff;
+  .event-name {
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.4;
+    &__description {
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: #888;
+      line-height: 1.5;
+      overflow: hidden;
+    }
+    &__detail {
+      margin: 16px 0 0;
+      &--image {
+        position: relative;
+        margin: 0 auto;
+        max-width: 360px;
+        background-color: #F2F2F2;
+        .information-event_first-image{
+          position: relative;
+          cursor: pointer;
+          .event-images{
+            line-height: 0;
+            img{
+              position: relative;
+              overflow: hidden;
+              max-height: 90px;
+              opacity: .4;
+              width: 20%;
+              cursor: pointer;
+            }
+          }
+        }
+        .information-event_content-image2{
+          display: none;
+        }
+      }
+    }
+  }
+}
