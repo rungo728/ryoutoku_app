@@ -80,6 +80,8 @@ gem 'pry-rails'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'rails-controller-testing'
+#画像をアップロードするためのgem
+gem 'carrierwave'
 
 gem 'devise'
 gem 'haml-rails'
