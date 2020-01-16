@@ -13,7 +13,11 @@
           <%# ここはマイページ画面に遷移するパスを入れる予定 %>
           <%= link_to "" do %>
             <%# あとでここにアイコンの写真が入るようにする %>
-            <%= image_tag 'mrkr-icon.png' %>
+            <% if current_user.icon.nil? %>
+              <%= image_tag 'mrkr_icon.png' %>
+            <% else %>
+              <%= image_tag current_user.icon %>
+            <% end %>
           <% end %>
         </div>
         <div class="user-information">
