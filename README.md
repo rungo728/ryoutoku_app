@@ -165,6 +165,7 @@ Things you may want to cover:
 - belongs_to :event
 
 ## prefecturesテーブル
+イベント出展場所やユーザの住所他の情報として使用
 
 |Column|Type|Options|
 |------|----|-------|
@@ -195,7 +196,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
+|image|string|null: false|
 |event_id|integer|null: false, foreign_key: true|
 
 ### Association
