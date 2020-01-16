@@ -108,6 +108,9 @@ Things you may want to cover:
 - belongs_to :prefecture
 
 ## eventsテーブル
+出展されたイベントは複数の画像を投稿でき、
+<br>開催名・場所・日時、キャッチコピー等をつけることができ、イベント価格や予約状況なども確認できるようにする。
+
 |Column|Type|Options|
 |------|----|-------|
 |title|string|null: false|
@@ -188,6 +191,7 @@ Things you may want to cover:
 - has_many :exhibitors
 
 ## imagesテーブル
+イベント一つの出展に複数の画像投稿が可能
 
 |Column|Type|Options|
 |------|----|-------|
