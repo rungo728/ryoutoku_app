@@ -165,7 +165,7 @@ Things you may want to cover:
 - belongs_to :event
 
 ## prefecturesテーブル
-イベント出展場所やユーザの住所他の情報として使用
+イベント出展場所やユーザの住所等の情報として使用
 
 |Column|Type|Options|
 |------|----|-------|
@@ -179,6 +179,8 @@ Things you may want to cover:
 - has_many :addresses
 
 ## categoriesテーブル
+一つのカテゴリーはたくさんのイベントを持っている
+ancestry(gem)によってツリー構造（階層）として編成する予定
 
 |Column|Type|Options|
 |------|----|-------|
@@ -187,9 +189,8 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :items
+- has_many :events
 - has_ancestry
-- has_many :exhibitors
 
 ## imagesテーブル
 イベント一つの出展に複数の画像投稿が可能
