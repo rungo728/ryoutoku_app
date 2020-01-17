@@ -90,10 +90,14 @@ Things you may want to cover:
 - belongs_to :user
 
 ## addressテーブル
+イベント開催日時・開催場所を登録するテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |event_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
+|date|string|null: false|
+|time|string|null: false|
 |postcode|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
@@ -134,7 +138,6 @@ Things you may want to cover:
 - belongs_to :category
 - has_many :comments
 - has_many :images
-- belongs_to :exhibitor
 - has_many :users, through: :likes
 
 ## exhibitorsテーブル
