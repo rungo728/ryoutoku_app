@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_141743) do
     t.text "description", null: false
     t.string "status", null: false
     t.string "capacity", null: false
+    t.string "place", null: false
     t.integer "price", null: false
     t.integer "exhibitor_id", null: false
     t.integer "buyer_id"

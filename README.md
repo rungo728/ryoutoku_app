@@ -121,6 +121,7 @@ Things you may want to cover:
 |description|text|null: false|
 |status|string|null: false|
 |capacity|string|null: false|
+|place|string|null: false|
 |price|integer|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |exhibitor_id|integer|null: false, foreign_key: true|
