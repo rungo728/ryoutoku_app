@@ -7,15 +7,21 @@
   border-bottom: 2px solid #02C39A;
 }
 .toppage-container{
-  .toppage-logo{
-    color:#02c39a;
-    font-size: 25px;
-    span{
-      position: relative;
-      top: 10px; //topとleft同時指定で斜めの動き
-      left: 10px;
-      opacity: 0;
 
+  .middle-content{
+    // 仮置きの画像（余裕あればjsでスライド
+    background-image: image-url("cookingimage5.png");
+    height: 500px;
+    .toppage-logo{
+      color:#02c39a;
+      font-size: 25px;
+      span{
+        position: relative;
+        top: 10px; //topとleft同時指定で斜めの動き
+        left: 10px;
+        opacity: 0;
+
+      }
     }
   }
 }
@@ -24,7 +30,7 @@ text {
   /* 色はお好みで */
   stroke: black;
   /* 色はお好みで */
-  fill: #02c39a;;
+  fill: #02c39a;
   /* 文字が大きい方がアニメーションが綺麗なので50pxを指定 */
   font-size: 35px;
   /* 100%だと最後まで表示されないので多めに設定する */
@@ -60,7 +66,7 @@ text {
 }
 100% {
   stroke-dashoffset: 0%;
-  fill:#02c39a;;
+  fill:#02c39a;
 }
 }
 @media screen and (min-width: 768px) {
