@@ -5,41 +5,32 @@
   <form name="cooking_details">
     <div>
       <h1>やってみたい料理工程を選択してください（２つまで）</h1>
-        1つ目の選択（割引料金）
-        <br>
-        <%# <select id="waribiki2">
-          <option value="0">未選択</option>
-          <option value="300">レベル１</option>
-          <option value="500">レベル２</option>
-          <option value="700">レベル３</option>
-          <option value="1000">レベル４</option>
-        </select>
-        <input type="button" value="計算" onclick="cooking_waribiki(this, 'waribiki2')" />
-        <br>
-        <br>
-        ２つ目の選択（割引料金）
-        <br>
-        <select id="waribiki2">
-          <option value="0">未選択</option>
-          <option value="300">レベル１</option>
-          <option value="500">レベル２</option>
-          <option value="700">レベル３</option>
-          <option value="1000">レベル４</option>
-        </select>
-        <input type="button" value="計算" onclick="cooking_waribiki(this, 'waribiki2')" />
-        <br>
-        <label for="level1" class="cooking__level1">レベル1</label>
-        <span>玉ねぎ・人参をみじん切りする</span>
-        <br>
-        <label for="level2" class="cooking__level2">レベル2</label>
-        <span>キャベツを切って下ゆでする</span>
-        <br>
-        <label for="level3" class="cooking__level3">レベル3</label>
-        <span>豚ひき肉と野菜を混ぜて肉ダネを作る</span>
-        <br>
-        <label for="level4" class="cooking__level4">レベル4</label>
-        <span>肉ダネをキャベツで巻いて出汁を取ったスープで茹でる</span>
-        <br> %>
+      <table border="0">
+      <tr>
+      <td align="left" nowrap><font color="#999999">◆</font>レベル１(500円割引)</td>
+      <td align="left"><input type="checkbox" onclick="keisan();limit()">具材買い出しの手伝い</td>
+      </tr>
+      <tr>
+      <td align="left"><font color="#999999">◆</font>レベル２(1000円割引)</td>
+      <td><input type="checkbox" onclick="keisan();limit()">キャベツを切って下ゆでする</td>
+      </tr>
+      <tr>
+      <td align="left"><font color="#999999">◆</font>レベル３(1500円割引)</td>
+      <td><input type="checkbox" onclick="keisan();limit()">玉ねぎ・人参をみじん切りする</td>
+      </tr>
+      <tr>
+      <td align="left"><font color="#999999">◆</font>レベル４(2000円割引)</td>
+      <td><input type="checkbox" onclick="keisan();limit()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
+      </tr>
+      <tr>
+      <td align="left"><font color="#999999">◆</font>レベル５(2500円割引)</td>
+      <td><input type="checkbox" onclick="keisan();limit()">肉ダネをキャベツで巻いて出汁を取ったスープで茹でる</td>
+      </tr> 
+      <tr>
+      <td align="left"><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
+      <td align="left"><input type="text" name="total" value="0"> 円</td>
+      </tr>
+      </table>
     </div>
   </form>
   <div class="event_middle-row clearfix">
@@ -58,7 +49,7 @@
   </div>
   <div class="event_bottom-row clearfix">
     <div class="event_bottom-row__title">
-      予約価格
+      イベント予約価格
     </div>
     <div class="event_bottom-row__price">
       4200円
