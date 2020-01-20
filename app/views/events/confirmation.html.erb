@@ -1,50 +1,55 @@
 <div class="exhibit-container">
   <%= render partial: 'shared/common_header' %>
-  <div class="event_cooking__steps--form">
-  </div>
-  <form name="cooking_details">
-    <div>
-      <h1>やってみたい料理工程を選択してください（２つまで）</h1>
-      <table border="0">
-      <tr>
-      <td align="left" nowrap><font color="#999999">◆</font>レベル１(500円割引)</td>
-      <td align="left"><input type="checkbox" onclick="keisan();limit()">具材買い出しの手伝い</td>
-      </tr>
-      <tr>
-      <td align="left"><font color="#999999">◆</font>レベル２(1000円割引)</td>
-      <td><input type="checkbox" onclick="keisan();limit()">キャベツを切って下ゆでする</td>
-      </tr>
-      <tr>
-      <td align="left"><font color="#999999">◆</font>レベル３(1500円割引)</td>
-      <td><input type="checkbox" onclick="keisan();limit()">玉ねぎ・人参をみじん切りする</td>
-      </tr>
-      <tr>
-      <td align="left"><font color="#999999">◆</font>レベル４(2000円割引)</td>
-      <td><input type="checkbox" onclick="keisan();limit()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
-      </tr>
-      <tr>
-      <td align="left"><font color="#999999">◆</font>レベル５(2500円割引)</td>
-      <td><input type="checkbox" onclick="keisan();limit()">肉ダネをキャベツで巻いて出汁を取ったスープで茹でる</td>
-      </tr> 
-      <tr>
-      <td align="left"><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
-      <td align="left"><input type="text" name="total" value="0"> 円</td>
-      </tr>
-      </table>
-    </div>
-  </form>
+</div>
+<div class="payment-container">
+  <section class="payment_details">
+    <h2 class="payment_details__title">予約内容の確認</h2>
+    <form class="payment-form" name="cooking_details">
+      <section class="payment_summary">
+        <div class="payment_summary__photo">
+          <%= image_tag 'mrkr-icon.png' %>
+        </div>
+        <div class="payment_summary__right">
+          <p class="payment_summary__right__event-name">管理栄養士による晩ごはん提供イベント</p>
+          <p class="payment_summary__exhibitor"><%= @user.nickname %></p>
+        </div>
+      </section>
+      <div class="">
+        <h1>やってみたい料理工程を選択してください（２つまで）</h1>
+        <table border="0">
+        <tr>
+        <td align="left" nowrap><font color="#999999">◆</font>レベル１(500円割引)</td>
+        <td align="left"><input type="checkbox" onclick="keisan();limit()">具材買い出しの手伝い</td>
+        </tr>
+        <tr>
+        <td align="left"><font color="#999999">◆</font>レベル２(1000円割引)</td>
+        <td><input type="checkbox" onclick="keisan();limit()">キャベツを切って下ゆでする</td>
+        </tr>
+        <tr>
+        <td align="left"><font color="#999999">◆</font>レベル３(1500円割引)</td>
+        <td><input type="checkbox" onclick="keisan();limit()">玉ねぎ・人参をみじん切りする</td>
+        </tr>
+        <tr>
+        <td align="left"><font color="#999999">◆</font>レベル４(2000円割引)</td>
+        <td><input type="checkbox" onclick="keisan();limit()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
+        </tr>
+        <tr>
+        <td align="left"><font color="#999999">◆</font>レベル５(2500円割引)</td>
+        <td><input type="checkbox" onclick="keisan();limit()">肉ダネをキャベツで巻いて出汁を取ったスープで茹でる</td>
+        </tr> 
+        <tr>
+        <td align="left"><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
+        <td align="left"><input type="text" name="total" value="0"> 円</td>
+        </tr>
+        </table>
+      </div>
+    </form>
+  </section>
   <div class="event_middle-row clearfix">
     <div class="event_middle-row__title">
-      割引合計
+
     </div>
     <div class="event_middle-row__profit">
-      <%# javascriptが途中のため、後で修正予定 %>
-      <div>１つ目<span id="cooking_waribiki">300</span>円</div>
-      <div>２つ目<span id="cooking_waribiki2">500</span>円</div>
-      <div>合計<span id="result"></span>円</div>
-      <%# <span id="cooking_waribiki"></span> +
-      <span id="cooking_waribiki2"></span>
-      = <output name ="result"> %>
     </div>
   </div>
   <div class="event_bottom-row clearfix">
