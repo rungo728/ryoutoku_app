@@ -6,58 +6,79 @@
     <h2 class="payment_details__title">予約内容の確認</h2>
     <form class="payment-form" name="cooking_details">
       <section class="payment_summary">
-        <div class="payment_summary__photo">
-          <%= image_tag 'mrkr-icon.png' %>
-        </div>
-        <div class="payment_summary__right">
-          <p class="payment_summary__right__event-name">管理栄養士による晩ごはん提供イベント</p>
-          <p class="payment_summary__exhibitor"><%= @user.nickname %></p>
+        <div class="payment_summary-inner">
+          <h3 class="payment_summary-inner__photo">
+            <%= image_tag 'mrkr-icon.png' %>
+          </h3>
+          <div class="payment_summary-inner__right">
+            <p class="payment_summary-inner__right__event-name">管理栄養士による晩ごはん提供イベント</p>
+            <p class="payment_summary-inner__exhibitor"><%= @user.nickname %></p>
+          </div>
         </div>
       </section>
-      <div class="">
-        <h1>やってみたい料理工程を選択してください（２つまで）</h1>
-        <table border="0">
-        <tr>
-        <td align="left" nowrap><font color="#999999">◆</font>レベル１(500円割引)</td>
-        <td align="left"><input type="checkbox" onclick="keisan();limit()">具材買い出しの手伝い</td>
-        </tr>
-        <tr>
-        <td align="left"><font color="#999999">◆</font>レベル２(1000円割引)</td>
-        <td><input type="checkbox" onclick="keisan();limit()">キャベツを切って下ゆでする</td>
-        </tr>
-        <tr>
-        <td align="left"><font color="#999999">◆</font>レベル３(1500円割引)</td>
-        <td><input type="checkbox" onclick="keisan();limit()">玉ねぎ・人参をみじん切りする</td>
-        </tr>
-        <tr>
-        <td align="left"><font color="#999999">◆</font>レベル４(2000円割引)</td>
-        <td><input type="checkbox" onclick="keisan();limit()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
-        </tr>
-        <tr>
-        <td align="left"><font color="#999999">◆</font>レベル５(2500円割引)</td>
-        <td><input type="checkbox" onclick="keisan();limit()">肉ダネをキャベツで巻いて出汁を取ったスープで茹でる</td>
-        </tr> 
-        <tr>
-        <td align="left"><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
-        <td align="left"><input type="text" name="total" value="0"> 円</td>
-        </tr>
-        </table>
-      </div>
+      <section class="payment_summary">
+        <div class="payment_summary-inner">
+          <ul>
+            <li>
+              <i class="fas fa-calendar-alt"></i>
+              1月25日(土) 18:30 - 20:30(単発)
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="payment_summary">
+        <div class="payment_summary-inner">
+          <i class="fas fa-map-marker-alt"></i>
+          <div class="payment_summary-inner__place">
+            <p class="payment_summary-inner__place__train">地下鉄線 明治神宮前駅 徒歩3分</p>
+            <p class="payment_summary-inner__place__address">
+            〒555-5555
+            <br>
+            東京都 渋谷区 松本1-12-13 まつビル</p>
+          </div>
+        </div>
+      </section>
+      <section class="cooking_summary">
+        <div class="cooking_summary-inner">
+          <div class= "middle-icon">
+            <i class="fas fa-mitten"></i>
+            <h1>やってみたい料理工程を選択してください（２つまで）</h1>
+          </div>
+          <table class="cooking_summary-inner__table" border="0">
+            <tr>
+            <td>レベル１(500円割引)</td>
+            <td><input type="checkbox" onclick="keisan();limit()">具材買い出しの手伝い</td>
+            </tr>
+            <tr>
+            <td>レベル２(1000円割引)</td>
+            <td><input type="checkbox" onclick="keisan();limit()">キャベツを切って下ゆでする</td>
+            </tr>
+            <tr>
+            <td>レベル３(1500円割引)</td>
+            <td><input type="checkbox" onclick="keisan();limit()">玉ねぎ・人参をみじん切りする</td>
+            </tr>
+            <tr>
+            <td>レベル４(2000円割引)</td>
+            <td><input type="checkbox" onclick="keisan();limit()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
+            </tr>
+            <tr>
+            <td>レベル５(2500円割引)</td>
+            <td><input type="checkbox" onclick="keisan();limit()">肉ダネをキャベツで巻き出汁を取ったスープで茹でる</td>
+            </tr> 
+            <tr>
+            <td><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
+            <td>￥<input type="text" name="total" value="0"></td>
+            </tr>
+          </table>
+        </div>
+      </section>
     </form>
   </section>
-  <div class="event_middle-row clearfix">
-    <div class="event_middle-row__title">
-
-    </div>
-    <div class="event_middle-row__profit">
-    </div>
-  </div>
-  <div class="event_bottom-row clearfix">
-    <div class="event_bottom-row__title">
-      イベント予約価格
-    </div>
-    <div class="event_bottom-row__price">
-      4200円
+  <div class="event_reservation clearfix">
+    <div class="event_reservation-inner">
+      <div class="event_reservation-inner__price">
+        イベント予約価格 <span>￥ 5000 </span>
+      </div>
     </div>
   </div>
 </div>
