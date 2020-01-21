@@ -130,7 +130,9 @@
             text-align: left;
             border-bottom: 1px solid #EDEDED;
             td{
-              padding-bottom: 8px;
+              padding-bottom: 16px;
+              font-size: 14px;
+              font-weight: bold;
             }
           }
         }
@@ -138,13 +140,18 @@
     }
   }
   .event_reservation{
+    width: 100%;
+    bottom: 0;
     .event_reservation-inner{ 
       max-width: 500px;
-      margin: 0 auto;
+      margin: auto;
+      padding: 16px 0;
+      border: 1px solid #02C39A;
+
       &__price{
         font-size: 18px;
         font-weight: 600;
-        text-align: left;
+        text-align: center;
       }
     }
   }
