@@ -74,11 +74,16 @@
       </section>
     </form>
   </section>
-  <div class="event_reservation clearfix">
+  <section class="event_reservation payment_fixed-footer">
     <div class="event_reservation-inner">
       <div class="event_reservation-inner__price">
-        イベント予約価格 <span>￥ 5000 </span>
+        イベント予約価格 <span>￥ 7000 </span>
       </div>
+    <div class="event-reservation-btn">
+      <%= link_to root_path, class:"btn-default btn-green" do%>
+        予約を確定する
+      <% end %>
+    </div>
     </div>
   </div>
-</div>
+</section>  
