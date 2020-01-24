@@ -8,8 +8,11 @@ Rails.application.routes.draw do
       get 'confirmation', to: 'events#confirmation'    
     end
   end
-  resources :exhibits do
 
+  resources :exhibits do    
+  end
+
+  resources :message do
     
   end
   resources :users do
