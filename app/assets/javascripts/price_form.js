@@ -35,13 +35,24 @@ else{for (i=0; i<checkbox; i++)
 document.cooking_details.elements[i].disabled = "";}
 
 }
-// ここがまだ不完全↓
-// 割引額の合計を <div class="event_middle-row__profit">に表示させる
-window.addEventListener('DOMContentLoaded', function(e){
-  var val_a=parseInt(document.querySelector('span#cooking_waribiki').textContent);
-  var val_b=parseInt(document.querySelector('span#cooking_waribiki2').textContent);
-  document.querySelector('span#result').textContent=val_a+val_b;
+// 割引価格を差し引いた金額をイベント予約価格に反映させる処理
+function update_price(){
+    
+  var result = $('#price').val() - $('#discount').val();
+  $('#total').text(result);
+}
+$(function() {
+$('input[type="text"]').on('keyup change', function() {
+  update_price();
 });
+});
+// ここがまだ不完全↓
+// // 割引額の合計を <div class="event_middle-row__profit">に表示させる
+// window.addEventListener('DOMContentLoaded', function(e){
+//   var val_a=parseInt(document.querySelector('span#cooking_waribiki').textContent);
+//   var val_b=parseInt(document.querySelector('span#cooking_waribiki2').textContent);
+//   document.querySelector('span#result').textContent=val_a+val_b;
+// });
 $(document).on('turbolinks:load', function(){
   // $('#price-setting').ready(function(){
   //   var inputPrice = $('#price-setting').val();
