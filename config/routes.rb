@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :exhibits do    
   end
 
-  resources :message do
+  resources :messages do
     
   end
   resources :users do
