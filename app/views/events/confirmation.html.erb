@@ -47,27 +47,30 @@
           <table class="cooking_summary-inner__table" border="0">
             <tr>
             <td>レベル１(500円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit()">具材買い出しの手伝い</td>
+            <td><input type="checkbox" onclick="keisan();limit();update_price()">具材買い出しの手伝い</td>
             </tr>
             <tr>
             <td>レベル２(1000円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit()">キャベツを切って下ゆでする</td>
+            <td><input type="checkbox" onclick="keisan();limit();update_price()">キャベツを切って下ゆでする</td>
             </tr>
             <tr>
             <td>レベル３(1500円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit()">玉ねぎ・人参をみじん切りする</td>
+            <td><input type="checkbox" onclick="keisan();limit();update_price()">玉ねぎ・人参をみじん切りする</td>
             </tr>
             <tr>
             <td>レベル４(2000円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
+            <td><input type="checkbox" onclick="keisan();limit();update_price()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
             </tr>
             <tr>
             <td>レベル５(2500円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit()">肉ダネをキャベツで巻き出汁を取ったスープで茹でる</td>
+            <td><input type="checkbox" onclick="keisan();limit();update_price()">肉ダネをキャベツで巻き出汁を取ったスープで茹でる</td>
             </tr> 
             <tr>
+            <td>価格</td>
+            <td>￥<input id="price" type="text" size="40" value=7000></td>
+            </tr>
             <td><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
-            <td>￥<input type="text" name="total" value="0"></td>
+            <td>￥<input id="discount" type="text" name="total" value="0" ></td>
             </tr>
           </table>
         </div>
@@ -77,7 +80,7 @@
   <section class="event_reservation payment_fixed-footer">
     <div class="event_reservation-inner">
       <div class="event_reservation-inner__price">
-        イベント予約価格 <span>￥ 7000 </span>
+        イベント予約価格 ￥<span id="total"> </span>
       </div>
     <div class="event-reservation-btn">
       <%= link_to root_path, class:"btn-default btn-green" do%>
