@@ -83,7 +83,8 @@
         イベント予約価格 ￥<span id="total"> </span>
       </div>
     <div class="event-reservation-btn">
-      <%= link_to root_path, class:"btn-default btn-green" do%>
+      <%# 本来は予約確定画面に遷移だが、一時的にイベント参加者チャット画面に遷移 %>
+      <%= link_to messages_path, class:"btn-default btn-green" do%>
         予約を確定する
       <% end %>
     </div>
