@@ -1,8 +1,34 @@
 <div class="exhibit-container">
   <%= render partial: 'shared/main_header' %>
 </div>
-<section class="dmroom-header">
-  <div class="dmroom-header__title">
-    <%= @user.nickname + 'さんとの会話'%>
+<div class="single-container">
+  <div class="dmroom-header">
+    <div class="dmroom-header__title">
+      <%= @user.nickname + 'さんとの会話'%>
+    </div>
   </div>
-</section>
+  <div class="dmroom-middle clearfix">
+    <div class="message-exhibitor left-message clearfix">
+      <div class="left-message__name">
+        KA
+      </div>
+      <div class="left-message__content">
+        料理体験お楽しみに！
+      </div>
+      <div class="left-message__date">
+        2020/01/27(Mon) 00:31:45に送信
+      </div>
+    </div>
+    <div class="message-participant right-message clearfix">
+      <div class="right-message__name">
+        TAEKO
+      </div>
+      <div class="right-message__content">
+        料理体験も気軽にできるし、食べることもできて最高！
+      </div>
+      <div class="right-message__date">
+        2020/01/27(Mon) 01:05:50に送信
+      </div>
+    </div>
+  </div>
+</div>
