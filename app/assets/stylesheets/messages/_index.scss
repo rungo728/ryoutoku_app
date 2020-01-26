@@ -1,0 +1,16 @@
+.dmroom-header{
+  height: 80px;
+  width: 100%;
+  background-color: #f0fff0;
+  position: fixed;
+  &__title{
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 80px;
+    margin-left: 20px;
+    background: #04C2CC;
+    border: 1px solid #04C2CC;
+    color: #fff;
+  }
+}
