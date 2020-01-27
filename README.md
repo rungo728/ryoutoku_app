@@ -219,11 +219,13 @@ ancestry(gem)によってツリー構造（階層）として編成する予定
 - belongs_to :user
 
 ## messagesテーブル
+イベント予約者トークページで出展者と参加者が気軽に交流できるようにする
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false, foreign_key: true|
+group_idは必要ない？イベント予約者にはbuyer_idが
+<!-- |group_id|integer|null: false, foreign_key: true| -->
 |user_id |integer|null: false, foreign_key: true|
-|body|text|
+|content|text|
 |image|string|
 
 ### Association
