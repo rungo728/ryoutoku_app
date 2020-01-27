@@ -21,7 +21,7 @@
     </div>
     <div class="message-participant right-message clearfix">
       <div class="right-message__name">
-        TAEKO
+        MATSU
       </div>
       <div class="right-message__content">
         料理体験も気軽にできるし、食べることもできて最高！
@@ -30,5 +30,11 @@
         2020/01/27(Mon) 01:05:50に送信
       </div>
     </div>
+  </div>
+  <div class="dmroom-form">
+    <%= form_for @message do |f|%>
+      <%= f.text_area :content, placeholder: "出展者と語り合おう！", class: "message-text"%>
+      <i class="fas fa-file-image"></i>
+      <%= f.submit '送信', class: "message-submit"%>
   </div>
 </div>
