@@ -7,6 +7,19 @@
       <%= @user.nickname + 'さんとの会話'%>
     </div>
   </div>
+  <div class="dmroom-form">
+    <form class="new-message">
+      <label for="message"></label><br>
+      <textarea class="text-message" placeholder="出展者と語り合おう！">
+      </textarea> 
+      <button type='submit' name='action' value='send' class="btn-default btn-green message-submit">送信</button>
+    </form>
+    <%# <%= form_for @message do |f|%>
+      <%# <%= f.text_area :content, placeholder: "出展者と語り合おう！", class: "message-text"%>
+      <%# <i class="fas fa-file-image"></i>
+      <%= f.submit '送信', class: "message-submit"%>
+    <%# <% end %>
+  </div>
   <div class="dmroom-middle clearfix">
     <div class="message-exhibitor left-message clearfix">
       <div class="left-message__name">
@@ -31,10 +44,5 @@
       </div>
     </div>
   </div>
-  <div class="dmroom-form">
-    <%= form_for @message do |f|%>
-      <%= f.text_area :content, placeholder: "出展者と語り合おう！", class: "message-text"%>
-      <i class="fas fa-file-image"></i>
-      <%= f.submit '送信', class: "message-submit"%>
-  </div>
+
 </div>
