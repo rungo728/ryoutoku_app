@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   # 仮のルーティング
-  root 'tests#index'
+  root 'events#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :events do
     collection do
