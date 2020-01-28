@@ -1,9 +1,16 @@
 <div class="header-container">
   <div class="join-menu">
     <%# 仮でイベント詳細ページに遷移、のちにイベント一覧ページを作成し、遷移先を変更 %>
-    <%= link_to event_path(id: current_user.id), class: "join-btn" do %>
+    <% if user_signed_in? %> 
+      <%= link_to event_path(current_user.id), class: "join-btn" do %>
+        <i class="fas fa-calendar-check"></i>
+        <span>参加してみよう！</span>
+      <% end %>
+    <% else %>
+      <%= link_to root_path, class: "join-btn" do %>
       <i class="fas fa-calendar-check"></i>
       <span>参加してみよう！</span>
+      <% end %>
     <% end %>
   </div>
     <% if user_signed_in? %> 
