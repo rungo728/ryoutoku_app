@@ -44,8 +44,6 @@ Things you may want to cover:
 
 <!-- 以下でaccepts_nested_attributes_forを定義し、親子関係のある関連モデルで、親モデル作成と同時に子モデルも作成する -->
 ### Association
-- has_many :groups, through: :members
-- has_many :members
 - has_many :messages
 - has_many :events
 - has_many :comments
