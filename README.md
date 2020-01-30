@@ -208,16 +208,6 @@ ancestry(gem)によってツリー構造（階層）として編成する予定
 
 - belongs_to :event
 
-## membersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|integer|null: false,foreign_key: true|
-|group_id|integer|null: false,foreign_key: true|
-
-### Association
-- belongs_to :group
-- belongs_to :user
-
 ## messagesテーブル
 イベント予約者トークページで出展者と参加者が気軽に交流できるようにする
 |Column|Type|Options|
@@ -232,15 +222,6 @@ group_idは必要ない？イベント予約者にはbuyer_idが
 - belongs_to :user
 - belongs_to :group
 
-## groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :users, through: members
-- has_many :members
-- has_many :messages
 
 ## cardsテーブル
 |Column|Type|Options|
@@ -255,4 +236,5 @@ group_idは必要ない？イベント予約者にはbuyer_idが
 <!-- 
 ## articlesテーブル
 ## evaluationsテーブル
-## likesテーブル -->
+## likesテーブル
+-->
