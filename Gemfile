@@ -80,6 +80,8 @@ gem 'pry-rails'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem 'rails-controller-testing'
+#カテゴリーを多段階検索できるようにするためのgem
+gem 'ancestry'
 
 gem 'devise'
 gem 'haml-rails'
