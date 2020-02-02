@@ -1,13 +1,14 @@
 .l-container{
   margin: 40px auto 0;
-  padding: 0 0 40px;
+  padding: 0 25px 40px;
   overflow: auto;
   .dm-content{
     width: 100%;
+    height: 100%;
     background: #7da4cd;
 
     .dmroom-header{
-      min-width: 600px;
+      min-width: 460px;
       height: 80px;
       &__title{
         text-align: center;

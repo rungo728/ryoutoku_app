@@ -14,11 +14,42 @@
         }
       }
     }
+    .event-detail-table{
+      tr{
+        border-bottom: 1px solid #04C2CC;
+        td{
+          .participants{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            box-lines:multiple;
+            .photo-participants{
+              img{
+                height: 38px;
+                width: 38px;
+                border-radius: 50%;
+                overflow: hidden;
+                display: block;
+              }
+              span{
+                font-family: 'Crimson Text', serif;
+                font-size: 12px;
+              }
+            }
+            .cooking-participants{
+              
+            }
+          }
+          .cooking{
+            width:100px;
+          }
+        }
+      }
+    }
   }
 }
 @media screen and (min-width: 768px){
   .event-side{
   float: none;
-  width: 700px;
 }
 }
