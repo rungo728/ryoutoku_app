@@ -52,7 +52,6 @@ Things you may want to cover:
 - has_many :events, through: :likes
 - has_one:personal
 - accepts_nested_attributes_for :personal
-- belongs_to :phone
 - has_one :address
 - accepts_nested_attributes_for :address
 
