@@ -1,6 +1,6 @@
 .l-container{
   margin: 40px auto 0;
-  padding: 0 25px 40px;
+  padding: 0 5px 40px;
   overflow: auto;
   .dm-content{
     width: 100%;
@@ -21,15 +21,13 @@
       }
     }
     .dmroom-form{
-      height: 60px;
       width: 100%;
       bottom: 0;
       background-color: #DDDDDD;
-      padding: 10px 30px;
+      padding: 10px 30px 50px;
       box-sizing: border-box;
       .new-message{
         width: 100%;
-        height: 40px;
         .text-message{
           border: none;
           height: 200px;
@@ -53,9 +51,7 @@
       box-sizing: border-box;
       max-width: 500px;
       margin: 15px auto;
-
-      min-height: 100%;
-      background-color: #98fb98;
+      min-height: 855px;
       .message-participant{
         float: right;
         margin-left: 50%;
@@ -103,7 +99,7 @@
         background: #30e852;
         border-radius: 12px;
         min-width: 250px;
-        margin-bottom: 10px;
+        margin-right:30px;
         padding: 10px;
         &__name{
           font-size: 13px;
@@ -144,7 +140,7 @@
       .new-message{
         text-align: center;
         .text-message{
-          min-width: 590px;
+          min-width: 600px;
 
         }
       }
@@ -155,6 +151,7 @@
 
 @media screen and (min-width: 1020px){
 .l-container{
+  max-width: 1000px;
   .dm-content{
     float: right;
   }
