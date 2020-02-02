@@ -9,5 +9,77 @@
     </div>
     <div class="information-event_content-image2">
     </div>
+    <table class="event-detail-table">
+      <tbody>
+        <tr>
+          <th>出展者</th>
+          <td>
+            <%= link_to "#" do %>
+              <span><%= @user.nickname %></span>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>開催日程</th>
+          <td>
+            <div class="event-detail__date">
+              1月25日（土）
+            <div class="event-detail__time">
+              18:30-20:30
+          </td>
+        </tr>
+        <tr>
+          <th>場所</th>
+          <td>
+            <div class="event-detail__place">
+              地下鉄 明治神宮駅 徒歩3分
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <th>参加する人</th>
+          <td>
+            <div class="participants">
+              <div class="photo-participants">
+                <%= image_tag 'mrkr-icon.png' %>
+                <span>matsu</span>
+                <%= image_tag 'mrkr-icon.png' %>
+                <span>tae</span>
+                <%= image_tag 'mrkr-icon.png' %>
+                <span>naru</span>
+              </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="cooking">
+              <div class="cooking-participants">
+                料理する人
+                <tr>
+                <td>tae</td>
+                <td>具材買い出しの手伝い</td>
+                </tr>
+                <tr>
+                <td>matsu</td>
+                <td>キャベツを切って下ゆでする</td>
+                </tr>
+                <tr>
+                <td>naru</td>
+                <td>玉ねぎ・人参をみじん切りする</td>
+                </tr>
+                <tr>
+                <td>matsu</td>
+                <td>豚ひき肉と野菜を混ぜて肉ダネを作る</td>
+                </tr>
+                <tr>
+                <td>matsu</td>
+                <td>肉ダネをキャベツで巻き出汁を取ったスープで茹でる</td>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
   </div>
 </div>
