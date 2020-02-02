@@ -1,0 +1,24 @@
+.event-side{
+  width: 280px;
+  float: left;
+  margin: 0 40px 0 0;
+  &__detail{
+    &--images{
+      .event-small-images{
+        img{
+          overflow: hidden;
+          max-height: 90px;
+          opacity: .4;
+          width: 20%;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 768px){
+  .event-side{
+  float: none;
+  width: 700px;
+}
+}

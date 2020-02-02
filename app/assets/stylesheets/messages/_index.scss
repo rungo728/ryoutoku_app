@@ -1,129 +1,161 @@
-.single-container{
-  width: 100%;
-  height: 100%;
-  .dmroom-header{
-    height: 80px;
-    &__title{
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      line-height: 80px;
-      background: #04C2CC;
-      border: 1px solid #04C2CC;
-      color: #fff;
-    }
-  }
-  .dmroom-form{
-    height: 60px;
+.l-container{
+  margin: 40px auto 0;
+  padding: 0 0 40px;
+  overflow: auto;
+  .dm-content{
     width: 100%;
-    bottom: 0;
-    background-color: #DDDDDD;
-    padding: 10px 30px;
-    box-sizing: border-box;
-    .new-message{
-      width: 100%;
-      height: 40px;
-      .text-message{
-        border: none;
-        height: 200px;
-        min-width: 400px;
-        font-size: 16px;
-        padding: 6px 12px;
+    background: #7da4cd;
+
+    .dmroom-header{
+      min-width: 600px;
+      height: 80px;
+      &__title{
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 80px;
+        background: #04C2CC;
         border: 1px solid #04C2CC;
+        color: #fff;
       }
-      .message-submit{
-        border: none;
-        color: #ffffff;
-        float: right;
-        font-size: 16px;
+    }
+    .dmroom-form{
+      height: 60px;
+      width: 100%;
+      bottom: 0;
+      background-color: #DDDDDD;
+      padding: 10px 30px;
+      box-sizing: border-box;
+      .new-message{
+        width: 100%;
         height: 40px;
-        padding: 0 30px;
-        margin-bottom: 20px;
+        .text-message{
+          border: none;
+          height: 200px;
+          min-width: 400px;
+          font-size: 16px;
+          padding: 6px 12px;
+          border: 1px solid #04C2CC;
+        }
+        .message-submit{
+          border: none;
+          color: #ffffff;
+          float: right;
+          font-size: 16px;
+          height: 40px;
+          padding: 0 30px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .dmroom-middle{
+      box-sizing: border-box;
+      max-width: 500px;
+      margin: 15px auto;
+
+      min-height: 100%;
+      background-color: #98fb98;
+      .message-participant{
+        float: right;
+        margin-left: 50%;
+      }
+      .message-exhibitor{
+        float: left;
+        margin-right: 50%;
+      }
+      .left-message{
+        position: relative; 
+        min-height: 50px;
+        max-width: 30%;
+        min-width: 250px;
+        margin: 0 0 10px 30px;
+        background: #edf1ee;
+        padding: 10px;
+        border-radius: 12px;
+        &__name{
+          font-size: 13px;
+          font-weight: bold;
+          border-bottom: 1px solid #808080;
+        }
+        &__content{
+          margin-top: 5px;
+        }
+        &__date{
+          margin-top: 5px;
+          font-size: 10px;
+          color: #696969;
+          text-align: right;
+        }
+      }
+      .left-message:after{
+        content: "";
+        position: absolute;
+        top: 3px; 
+        left: -19px;
+        border: 8px solid transparent;
+        border-right: 18px solid #edf1ee;
+        -webkit-transform: rotate(35deg);
+        transform: rotate(35deg);
+      }
+      .right-message{
+        position: relative; 
+        background: #30e852;
+        border-radius: 12px;
+        min-width: 250px;
+        margin-bottom: 10px;
+        padding: 10px;
+        &__name{
+          font-size: 13px;
+          font-weight: bold;
+          border-bottom: 1px solid #808080;
+        }
+        &__content{
+          margin-top: 5px;
+        }
+        &__date{
+          margin-top: 5px;
+          font-size: 10px;
+          color: #696969;
+          text-align: right;
+        }
+      }
+      .right-message:after{
+        content: "";
+        position: absolute;
+        top: 3px; 
+        right: -19px;
+        border: 8px solid transparent;
+        border-left: 18px solid #30e852;
+        -webkit-transform: rotate(-35deg);
+        transform: rotate(-35deg);
+      }
+
+    
+    }
+  }
+}
+@media screen and (min-width: 768px){
+.l-container{
+  .dm-content{
+    float: right;
+    width: 700px;
+    .dmroom-form{
+      .new-message{
+        text-align: center;
+        .text-message{
+          min-width: 590px;
+
+        }
       }
     }
   }
-  .dmroom-middle{
-    box-sizing: border-box;
-    max-width: 500px;
-    margin: 15px auto;
+}
+}
 
-    min-height: 100%;
-    background-color: #98fb98;
-    .message-participant{
-      float: right;
-      margin-left: 50%;
-    }
-    .message-exhibitor{
-      float: left;
-      margin-right: 50%;
-    }
-    .left-message{
-      position: relative; 
-      min-height: 50px;
-      max-width: 30%;
-      min-width: 250px;
-      margin: 0 0 10px 30px;
-      background: #edf1ee;
-      padding: 10px;
-      border-radius: 12px;
-      &__name{
-        font-size: 13px;
-        font-weight: bold;
-        border-bottom: 1px solid #808080;
-      }
-      &__content{
-        margin-top: 5px;
-      }
-      &__date{
-        margin-top: 5px;
-        font-size: 10px;
-        color: #696969;
-        text-align: right;
-      }
-    }
-    .left-message:after{
-      content: "";
-      position: absolute;
-      top: 3px; 
-      left: -19px;
-      border: 8px solid transparent;
-      border-right: 18px solid #edf1ee;
-      -webkit-transform: rotate(35deg);
-      transform: rotate(35deg);
-    }
-    .right-message{
-      position: relative; 
-      background: #30e852;
-      border-radius: 12px;
-      min-width: 250px;
-      margin-bottom: 10px;
-      padding: 10px;
-      &__name{
-        font-size: 13px;
-        font-weight: bold;
-        border-bottom: 1px solid #808080;
-      }
-      &__content{
-        margin-top: 5px;
-      }
-      &__date{
-        margin-top: 5px;
-        font-size: 10px;
-        color: #696969;
-        text-align: right;
-      }
-    }
-    .right-message:after{
-      content: "";
-      position: absolute;
-      top: 3px; 
-      right: -19px;
-      border: 8px solid transparent;
-      border-left: 18px solid #30e852;
-      -webkit-transform: rotate(-35deg);
-      transform: rotate(-35deg);
-    }
-
-  
+@media screen and (min-width: 1020px){
+.l-container{
+  .dm-content{
+    float: right;
   }
+}
 }
