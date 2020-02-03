@@ -46,7 +46,7 @@ Things you may want to cover:
 ### Association
 - has_many :messages
 - has_many :events
-- has_many :comments
+- has_many :messages
 - has_many :cards
 - has_many :evaluations
 - has_many :events, through: :likes
@@ -75,16 +75,6 @@ Things you may want to cover:
 
 - belongs_to :user
 - belongs_to :prefecture
-
-## phoneテーブル
-|Column|Type|Options|
-|------|----|-------|
-|phone_number|string|null: false|
-
-
-### Association
-
-- belongs_to :user
 
 ## addressテーブル
 イベント開催日時・開催場所を登録するテーブル
@@ -134,11 +124,12 @@ Things you may want to cover:
 - belongs_to :buyer, class_name: “User”
 - belongs_to :prefecture
 - belongs_to :category
-- has_many :comments
+- has_many :messages
 - has_many :images
 - has_many :users, through: :likes
 
-## exhibitorsテーブル
+## cooksテーブル
+イベントそれぞれの料理工程を登録するためのテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -152,18 +143,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :events
-
-## commentsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|comment|text||
-|user_id|integer|null: false, foreign_key: true|
-|event_id|integer|null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :user
-- belongs_to :event
 
 ## prefecturesテーブル
 イベント出展場所やユーザの住所等の情報として使用
@@ -209,15 +188,14 @@ ancestry(gem)によってツリー構造（階層）として編成する予定
 イベント予約者トークページで出展者と参加者が気軽に交流できるようにする
 |Column|Type|Options|
 |------|----|-------|
-group_idは必要ない？イベント予約者にはbuyer_idが
-<!-- |group_id|integer|null: false, foreign_key: true| -->
 |user_id |integer|null: false, foreign_key: true|
+|event_id |integer|null: false, foreign_key: true|
 |content|text|
 |image|string|
 
 ### Association
 - belongs_to :user
-- belongs_to :group
+- belongs_to :event
 
 
 ## cardsテーブル
