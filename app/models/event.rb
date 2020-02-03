@@ -5,4 +5,5 @@ class Event < ApplicationRecord
   belongs_to :category
   has_many :comments
   has_many :images
+  has_many :users, through: :messages
 end
