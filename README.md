@@ -191,7 +191,6 @@ ancestry(gem)によってツリー構造（階層）として編成する予定
 |user_id |integer|null: false, foreign_key: true|
 |event_id |integer|null: false, foreign_key: true|
 |content|text|
-|image|string|
 
 ### Association
 - belongs_to :user
