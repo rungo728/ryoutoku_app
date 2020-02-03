@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_145241) do
+ActiveRecord::Schema.define(version: 2020_02_03_145248) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2020_01_30_145241) do
     t.index ["event_id"], name: "index_images_on_event_id"
   end
 
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_messages_on_event_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
@@ -69,4 +79,6 @@ ActiveRecord::Schema.define(version: 2020_01_30_145241) do
   add_foreign_key "events", "categories"
   add_foreign_key "events", "prefectures"
   add_foreign_key "images", "events"
+  add_foreign_key "messages", "events"
+  add_foreign_key "messages", "users"
 end
