@@ -49,7 +49,7 @@ Things you may want to cover:
 - has_many :messages
 - has_many :cards
 - has_many :evaluations
-- has_many :events, through: :likes
+- has_many :events, through: :messages
 - has_one:personal
 - accepts_nested_attributes_for :personal
 - has_one :address
@@ -126,7 +126,7 @@ Things you may want to cover:
 - belongs_to :category
 - has_many :messages
 - has_many :images
-- has_many :users, through: :likes
+- has_many :users, through: :messages
 
 ## cooksテーブル
 イベントそれぞれの料理工程を登録するためのテーブル
