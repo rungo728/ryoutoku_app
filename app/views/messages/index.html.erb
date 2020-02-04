@@ -34,18 +34,15 @@
       </div>
     </div>
     <div class="dmroom-form">
-      <form class="new-message">
-        <label for="message"></label><br>
-        <textarea class="text-message" placeholder="出展者と語り合おう！">
-        </textarea> 
-        <button type='submit' name='action' value='send' class="btn-default btn-green message-submit">送信</button>
-      </form>
-      <%# コントローラー作成したら解放 %>
-      <%# <%= form_for @message do |f|%>
-        <%# <%= f.text_area :content, placeholder: "出展者と語り合おう！", class: "message-text"%>
-        <%# <i class="fas fa-file-image"></i>
-        <%= f.submit '送信', class: "message-submit"%>
-      <%# <% end %>
+      <div class="new-message">
+        <%# messagesのルーティングがeventsにネストされているため、本アプリでは、あるイベントに属しているメッセージという親子関係があります %>
+        <%# form_forの第１引数@eventにはどのイベントのメッセージとして保存したいのか、第２引数@messageにはMessageモデルのからのインスタンス（Message.new）をあらかじめセット %>
+        <%= form_for [@event, @message] do |f|%>
+          <%= f.text_area :content, placeholder: "出展者と語り合おう！", class: "text-message"%>
+          <i class="fas fa-file-image"></i>
+          <%= f.submit '送信', class: "btn-default btn-green message-submit"%>
+        <% end %>
+      </div>
     </div>
   </div>
   <%# 部分テンプレートのサイドメニューを呼び出し %>
