@@ -84,6 +84,8 @@ gem 'rails-controller-testing'
 gem 'ancestry'
 #画像をアップロードするためのgem
 gem 'carrierwave'
+gem 'mini_magick'
+
 
 gem 'devise'
 gem 'haml-rails'
