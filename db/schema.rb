@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_02_03_145248) do
     t.bigint "user_id", null: false
     t.bigint "event_id", null: false
     t.text "content"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_messages_on_event_id"
