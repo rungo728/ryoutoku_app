@@ -82,6 +82,8 @@ gem 'factory_bot_rails'
 gem 'rails-controller-testing'
 #カテゴリーを多段階検索できるようにするためのgem
 gem 'ancestry'
+#画像をアップロードするためのgem
+gem 'carrierwave'
 
 gem 'devise'
 gem 'haml-rails'
