@@ -1,0 +1,6 @@
+<div class='notifications'>
+  <%# 投稿成功の場合、keyに"notice"、valueに"メッセージが送信されました"が入る %>
+  <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: key) %>
+  <% end %>
+</div>
