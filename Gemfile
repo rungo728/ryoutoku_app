@@ -85,7 +85,8 @@ gem 'ancestry'
 #画像をアップロードするためのgem
 gem 'carrierwave'
 gem 'mini_magick'
-
+# レコードを追加するためのgem
+gem 'seed-fu'
 
 gem 'devise'
 gem 'haml-rails'
