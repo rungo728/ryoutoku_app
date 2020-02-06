@@ -1,12 +1,12 @@
 class MessagesController < ApplicationController
   before_action :get_user
   # イベントの仮情報を入れるまではコメントアウト
-  # before_action :set_event
+  before_action :set_event
 
   def index
     @message = Message.new
     # イベントに所属する全てのメッセージである@messagesを定義
-    # @messages = @event.messages.includes(:user)
+    @messages = @event.messages.includes(:user)
   end
 
   def create
@@ -29,9 +29,11 @@ class MessagesController < ApplicationController
 
   def get_user
     @user = User.find(current_user.id)
+
   end
   # messagesコントローラの全てのアクションで@eventを利用できるようになる
   def set_event
-    @event = Event.find(params[:event_id])    
+    @event = Event.find(params[:event_id])
+    binding.pry
   end
 end
