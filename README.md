@@ -1,32 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
 # Ryouoku_app
 ご覧いただきましてありがとうございます。
 <br>このアプリケーションは美味しいものを食べたくて料理はやってみたいけれど、敷居が高くてなかなかできない人向け
 <br>料理も手軽に体験できて、食べられる体験シェアマッチングアプリです。
+
+url:http://13.230.196.160:3000/
+
+* Basic認証
+<br>ID: 
+<br>Password: 
+
+# 開発メンバー
+* 小山薫
+
+# 制作環境
+* Ruby on Rails '5.2.3'
+* mysql2 '>= 0.4.4', '< 0.6.0'
+* AWS、S3を用いたデプロイと画像の保存。
+
+
+# 使い方
+
+# 工夫した点
+
+# 改善点
 
 # DB設計
 
