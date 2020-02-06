@@ -1,0 +1,41 @@
+<% if current_user.id %>
+  <div class="message-exhibitor left-message clearfix">
+    <div class="left-message__name">
+      <%# KA %>
+      <% message.@user.nickname %>
+    </div>
+    <div class="left-message__content">
+      <% if message.content.present? %>
+        <p> 
+          <%# 料理体験お楽しみに %>
+          <%= message.content %>
+        </p>
+        <%# <%= image_tag message.image.url, class: 'left-message__image' if message.image.present? %> 
+      <% end %> 
+    </div>
+    <div class="left-message__date">
+      <%# 2020/01/27(Mon) 00:31:45に送信 %>
+      <%= message.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+    </div>
+  </div>
+<% else %>
+  <div class="message-participant right-message clearfix">
+    <div class="right-message__name">
+      <%# MATSU %>
+      <% message.user.nickname %>
+    </div>
+    <div class="right-message__content">
+      <% if message.content.present? %>
+        <p> 
+          <%# 料理体験も気軽にできるし、食べることもできて最高！ %>
+          <%= message.content %>
+        </p>
+        <%# <%= image_tag message.image.url, class: 'left-message__image' if message.image.present? %> 
+      <% end %>
+    </div>
+    <div class="right-message__date">
+      <%# 2020/01/27(Mon) 01:05:50に送信 %>
+      <%= message.created_at.strftime("%Y年%m月%d日 %H時%M分")%>
+    </div>
+  </div>
+<% end %>

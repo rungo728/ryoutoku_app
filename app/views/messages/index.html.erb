@@ -10,28 +10,8 @@
     </div>
 
     <div class="dmroom-middle clearfix">
-      <div class="message-exhibitor left-message clearfix">
-        <div class="left-message__name">
-          KA
-        </div>
-        <div class="left-message__content">
-          料理体験お楽しみに！
-        </div>
-        <div class="left-message__date">
-          2020/01/27(Mon) 00:31:45に送信
-        </div>
-      </div>
-      <div class="message-participant right-message clearfix">
-        <div class="right-message__name">
-          MATSU
-        </div>
-        <div class="right-message__content">
-          料理体験も気軽にできるし、食べることもできて最高！
-        </div>
-        <div class="right-message__date">
-          2020/01/27(Mon) 01:05:50に送信
-        </div>
-      </div>
+     <%= render partial: 'messages/form' ,locals: { message: @messages } %>
+     binding.pry
     </div>
     <div class="dmroom-form">
       <div class="new-message">
@@ -39,7 +19,11 @@
         <%# form_forの第１引数@eventにはどのイベントのメッセージとして保存したいのか、第２引数@messageにはMessageモデルのからのインスタンス（Message.new）をあらかじめセット %>
         <%= form_for [@event, @message] do |f|%>
           <%= f.text_area :content, placeholder: "出展者と語り合おう！", class: "text-message"%>
-          <i class="fas fa-file-image"></i>
+          <%= f.label :image, class: "upload-image" do%>
+            <i class="fas fa-file-image"></i>
+            <%= f.file_field :image, class: 'hidden'%>
+          <% end %>
+          <%# <%= f.hidden_field :event_id, value: "#{@event.id}"%> 
           <%= f.submit '送信', class: "btn-default btn-green message-submit"%>
         <% end %>
       </div>
