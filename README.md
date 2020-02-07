@@ -87,7 +87,7 @@ url:http://13.230.196.160:3000/
 |city|string|null: false|
 |address|string|null: false|
 |building|string||
-|phone_number_sub|string||
+|phone_number|string||
 |figure|text|null: false|
 
 
@@ -104,7 +104,6 @@ url:http://13.230.196.160:3000/
 |------|----|-------|
 |title|string|null: false|
 |description|text|null: false|
-|status|string|null: false|
 |capacity|string|null: false|
 |place|string|null: false|
 |price|integer|null: false|
@@ -130,8 +129,6 @@ url:http://13.230.196.160:3000/
 イベントそれぞれの料理工程を登録するためのテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|category_id|integer|null: false, foreign_key: true|
 |event_id|integer|null: false, foreign_key: true|
 |level1|string|null: false|
 |level2|string|null: false|
@@ -140,7 +137,7 @@ url:http://13.230.196.160:3000/
 |level5|string|null: false|
 
 ### Association
-- has_many :events
+- belongs_to event
 
 ## prefecturesテーブル
 イベント出展場所やユーザの住所等の情報として使用
