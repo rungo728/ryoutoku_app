@@ -3,7 +3,6 @@ class CreateEvents < ActiveRecord::Migration[5.2]
     create_table :events do |t|
       t.string :title,                null: false
       t.text :description,            null: false
-      t.string :status,               null: false
       t.string :capacity,             null: false
       t.string :place,             null: false
       t.integer :price,               null: false
