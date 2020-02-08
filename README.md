@@ -87,6 +87,7 @@ url:http://13.230.196.160:3000/
 |address|string|null: false|
 |building|string||
 |phone_number|string||
+<!-- 余裕があればgooglemapが表示できるようにしたい↓ -->
 |figure|text|null: false|
 
 
