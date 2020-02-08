@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_034905) do
     t.string "address", null: false
     t.string "building"
     t.string "phone_number"
+    t.text "figure"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_addresses_on_event_id"

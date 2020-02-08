@@ -9,6 +9,7 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string :address,          null: false
       t.string :building
       t.string :phone_number
+      t.text :figure
       t.timestamps
     end
   end
