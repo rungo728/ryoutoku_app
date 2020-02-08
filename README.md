@@ -191,6 +191,16 @@ ancestry(gem)によってツリー構造（階層）として編成する予定
 - belongs_to :user
 - belongs_to :event
 
+## entriesテーブル
+どのユーザーがどのイベントを予約しているかわかるようにするテーブル
+Column|Type|Options|
+|------|----|-------|
+|user_id |integer|null: false, foreign_key: true|
+|event_id |integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :event
 
 ## cardsテーブル
 |Column|Type|Options|
