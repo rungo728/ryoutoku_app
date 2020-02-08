@@ -10,10 +10,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = @event.messages.new(message_params)
+    @message = Message.create(message_params)
+    binding.pry
     if @message.save
       # 本来はevent_messages_path seedでイベントの仮情報を入れたら変更
-      redirect_to messages_path(@event), notice: 'メッセージが送信されました'
+      redirect_to event_messages_path(@event), notice: 'メッセージが送信されました'
     else
       @messages = @event.messages.includes(:user)
       flash.now[:alert] = 'メッセージを入力してください。'
@@ -24,16 +25,19 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:message).permit(:user_id, :content, :image, :event_id).merge(user_id: current_user.id)
   end  
 
   def get_user
-    @user = User.find(current_user.id)
-
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    else
+      @user = User.new
+    end
   end
   # messagesコントローラの全てのアクションで@eventを利用できるようになる
   def set_event
     @event = Event.find(params[:event_id])
-    binding.pry
+
   end
 end

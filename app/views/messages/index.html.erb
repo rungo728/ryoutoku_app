@@ -10,8 +10,7 @@
     </div>
 
     <div class="dmroom-middle clearfix">
-     <%= render partial: 'messages/form' ,locals: { message: @messages } %>
-     binding.pry
+      <%= render partial: 'messages/form' ,locals: { message: @messages } %>     
     </div>
     <div class="dmroom-form">
       <div class="new-message">
@@ -23,7 +22,7 @@
             <i class="fas fa-file-image"></i>
             <%= f.file_field :image, class: 'hidden'%>
           <% end %>
-          <%# <%= f.hidden_field :event_id, value: "#{@event.id}"%> 
+          <%= f.hidden_field :event_id, value: "#{@event.id}"%>
           <%= f.submit '送信', class: "btn-default btn-green message-submit"%>
         <% end %>
       </div>
