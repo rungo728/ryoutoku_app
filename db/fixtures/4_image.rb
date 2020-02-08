@@ -1,4 +1,4 @@
-image.seed(:id,
+Image.seed(:id,
   { :id => 0, :image => "oniku2.jpg", :event_id => 0},
   { :id => 1, :image => "sarada.jpg", :event_id => 0},
   { :id => 2, :image => "gohan2.jpg", :event_id => 1},
