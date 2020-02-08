@@ -84,7 +84,7 @@
       </div>
     <div class="event-reservation-btn">
       <%# 本来は予約確定画面に遷移だが、一時的にイベント参加者チャット画面に遷移 %>
-      <%= link_to messages_path, class:"btn-default btn-green" do%>
+      <%= link_to event_messages_path(current_user.id), class:"btn-default btn-green" do%>
         予約を確定する
       <% end %>
     </div>
