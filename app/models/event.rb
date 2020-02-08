@@ -3,7 +3,8 @@ class Event < ApplicationRecord
   belongs_to :buyer, class_name: "User"
   belongs_to :prefecture
   belongs_to :category
-  has_many :messages
+  has_many :messages,  dependent: :destroy
+  has_many :entries, dependent: :destroy
   has_many :images
   has_one :cook
   has_one :address

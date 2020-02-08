@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :exhibiting_events, -> { where("buyer_id is NULL") }, foreign_key: "exhibitor_id", class_name: "Event"
   has_many :reserved_events, -> { where("buyer_id is not NULL") }, foreign_key: "exhibitor_id", class_name: "Event"
   
-  has_many :messages
+  has_many :messages,dependent: :destroy
+  has_many :entries, dependent: :destroy
   has_many :events
   has_many :comments
   has_many :cards
