@@ -80,7 +80,6 @@ url:http://13.230.196.160:3000/
 |Column|Type|Options|
 |------|----|-------|
 |event_id|integer|null: false, foreign_key: true|
-|prefecture_id|integer|null: false, foreign_key: true|
 |date|string|null: false|
 |time|string|null: false|
 |postcode|string|null: false|
@@ -94,7 +93,6 @@ url:http://13.230.196.160:3000/
 ### Association
 
 - belongs_to :event
-- belongs_to :prefecture
 
 ## eventsテーブル
 出展されたイベントは複数の画像を投稿でき、
