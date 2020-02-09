@@ -1,0 +1,23 @@
+<div class="user-container">
+  <%= render partial: 'shared/main_header' %>
+  <div class="l-container clearfix">
+    <div class="l-content">
+      <section class="user-dm-menu">
+        <h2 class="user-title">
+          <%= @user.nickname + "さんのページ"%>
+        </h2> 
+        <%# ここの部分で余裕あったらマイページを作成 %>
+        <div class="user-dm-start">
+          <%= form_for @event, :url => {:action => :create, :controller => :events} do |f| %>
+          <%# <%= form_with url: events_path, local: true do |f| %>
+            <%= f.hidden_field :nickname, :value => @user.nickname %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, :value => @user.id %>
+            <% end %> 
+            <%= f.submit "ダイレクトメッセージを始める" ,class: "btn-default btn-green message-submit" %>
+          <% end %>           
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
