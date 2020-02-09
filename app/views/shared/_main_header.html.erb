@@ -18,7 +18,7 @@
       <div class="nav-menu">
         <div class="user-information">
           <%# ここはマイページ画面に遷移するパスを入れる予定 %>
-          <%= link_to "" do %>
+          <%= link_to user_path(id: current_user.id), class:"user-icon" do %>
             <%# あとでここにアイコンの写真が入るようにする %>
             <% if current_user.icon.nil? %>
               <%= image_tag 'mrkr-icon.png' %>
