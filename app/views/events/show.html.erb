@@ -1,7 +1,6 @@
 <div class="event-container">
     <%= render partial: 'shared/main_header' %>
 </div>
-
 <section class="event-box-container">
   <div class="header-icon">
     <i class="fas fa-mitten"></i>
@@ -90,6 +89,22 @@
         予約画面に進む
       <% end %>
     </div>
-
   </div>
 </section>
+<div class="l-container clearfix"> 
+  <div class="dm-content">
+    <div class="dmroom-header">
+          <div class="dmroom-header__title">
+            イベント参加者さんとの会話
+          </div>
+    </div>
+    <div class="dmroom-middle clearfix">
+      <%= render partial: 'messages/form' ,locals: { message: @messages } %>     
+    </div>
+    <div class="dmroom-form">
+      <div class="new-message">
+
+      </div>
+    </div>
+  </div>
+</div>
