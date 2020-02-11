@@ -10,8 +10,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.create(message_params)
-    binding.pry
+    if Entry.where(:user_id => current_user.id, :event_id => params[:message][:event_id]).present?
+      @message = Message.create(message_params)
+      # redirect_to "/events/#{@message.event_id}"
+      binding.pry
+    else
+      redirect_back(fallback_location: root_path)
+    end
     if @message.save
       # 本来はevent_messages_path seedでイベントの仮情報を入れたら変更
       redirect_to event_messages_path(@event), notice: 'メッセージが送信されました'
