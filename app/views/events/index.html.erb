@@ -13,6 +13,19 @@
     <div class="slider">
 
     </div>
+    <div class="dm-index">
+      参加中のイベント一覧
+    </div>
+    <% if user_signed_in? %> 
+      <div class="event-index">
+        <% @anotherEntries.each do |entry| %>
+          <%# <%= Message.find_by(id: entry.event.message_ids.last).content %> 
+          <%=link_to event_messages_path(entry.event) do %>
+            <%= entry.event.title + "でのメッセージ"%>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
 
