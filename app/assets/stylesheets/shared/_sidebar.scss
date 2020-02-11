@@ -21,15 +21,12 @@
           .participants{
             height: 100%;
             width: 100%;
-            display: flex;
-            box-lines:multiple;
             .photo-participants{
               img{
                 height: 38px;
                 width: 38px;
                 border-radius: 50%;
-                overflow: hidden;
-                display: block;
+                overflow: hidden; 
               }
               span{
                 font-family: 'Crimson Text', serif;
