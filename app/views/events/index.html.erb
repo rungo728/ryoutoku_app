@@ -13,20 +13,37 @@
     <div class="slider">
 
     </div>
-    <div class="dm-index">
-      参加中のイベント一覧
-    </div>
-    <% if user_signed_in? %> 
-      <div class="event-index">
-        <% @anotherEntries.each do |entry| %>
-          <%# <%= Message.find_by(id: entry.event.message_ids.last).content %> 
-          <%=link_to event_messages_path(entry.event) do %>
-            <%= entry.event.title + "でのメッセージ"%>
-          <% end %>
-        <% end %>
-      </div>
+  </div>
+  <div class="dm-index">
+    <h3> 参加中のイベント一覧</h3>
+    <%= link_to "#" do %>
+      もっと見る
+      <i class="fas fa-chevron-right"></i>
     <% end %>
   </div>
+  <% if user_signed_in? %> 
+    <div class="event-index">
+      <ul class="event-index__list">
+        <%# データベースから並べる時に使用 %>
+        <% @anotherEntries.each do |entry| %>
+          <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
+          <li class="event-index__item">  
+            <%=link_to event_messages_path(entry.event),class: "dm-link" do %>
+              <div class="event-box">
+                <span><%= entry.event.prefecture.name %>
+                </span>
+                <%# 画像アップロードするエリア %>
+                <%# <%= image_tag "ryouri2.jpeg" %> 
+                <%= image_tag entry.event.images,class: "event-image"%>
+              </div>
+              <div class="event-title"> 
+                <%= entry.event.title + ""%>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %> 
 </div>
 
 
