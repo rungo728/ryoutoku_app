@@ -33,11 +33,12 @@
                 <span><%= entry.event.prefecture.name %>
                 </span>
                 <%# 画像アップロードするエリア %>
-                <%# <%= image_tag "ryouri2.jpeg" %> 
-                <%= image_tag entry.event.images,class: "event-image"%>
+                <%= image_tag "ryouri2.jpeg" %>
+                <%# <%= image_tag entry.image.image,class: "event-image" %> %>
               </div>
               <div class="event-title"> 
                 <%= entry.event.title + ""%>
+              </div>
             <% end %>
           </li>
         <% end %>
