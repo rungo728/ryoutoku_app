@@ -3,7 +3,18 @@
   width: 100%;
   margin: 0 auto;
   &__title{
-    padding: 30px 0px;
+    color: #fff;
+    background-color: #02C39A;
+    width: 270px;
+    border-radius: 1px;
+    line-height: 70px;
+    height: 70px;
+    margin: 0 auto 8px;
+    text-align: center;
+    .fa-chalkboard-teacher{
+      font-size: 40px;
+      vertical-align: middle;
+    }
   }
 
 }

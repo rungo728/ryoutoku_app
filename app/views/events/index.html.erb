@@ -26,21 +26,23 @@
       <ul class="event-index__list">
         <%# データベースから並べる時に使用 %>
         <% @anotherEntries.each do |entry| %>
-          <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
-          <li class="event-index__item">  
-            <%=link_to event_messages_path(entry.event),class: "dm-link" do %>
-              <div class="event-box">
-                <span><%= entry.event.prefecture.name %>
-                </span>
-                <%# 画像アップロードするエリア %>
-                <%= image_tag "ryouri2.jpeg" %>
-                <%# <%= image_tag entry.image.image,class: "event-image" %> %>
-              </div>
-              <div class="event-title"> 
-                <%= entry.event.title + ""%>
-              </div>
+          <% @user_events.each do |user_event|
+            #<%= Message.find_by(id: entry.event.message_ids.last).content %> 
+            <li class="event-index__item">  
+              <%=link_to event_messages_path(entry.event),class: "dm-link" do %>
+                <div class="event-box">
+                  <span><%= entry.event.prefecture.name %>
+                  </span>
+                  <%# 画像アップロードするエリア %>
+                  <%= image_tag "ryouri2.jpeg" %>
+                  <%# <%= image_tag user_event.images.first.image,class: "event-image" %> %>
+                </div>
+                <div class="event-title"> 
+                  <%= entry.event.title + ""%>
+                </div>
+              <% end %>
             <% end %>
-          </li>
+            </li>
         <% end %>
       </ul>
     </div>
