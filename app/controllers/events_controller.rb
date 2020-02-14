@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   before_action :set_event,only: [:edit, :update]
 
   def index
+    @user_events = Event.where(exhibitor_id: @user.id).order("id DESC").limit(6)
     if user_signed_in?
       @entries = Entry.where(user_id: current_user.id)
       myEventIds = []
@@ -11,6 +12,7 @@ class EventsController < ApplicationController
         myEventIds << entry.event.id
       end
       @anotherEntries = Entry.where(event_id: myEventIds).where('user_id != ?', @user.id)
+      binding.pry
     end
   end
 
@@ -27,6 +29,7 @@ class EventsController < ApplicationController
   # イベント出展画面
   def new
     @event = Event.new
+    @event.images.build
     @event.users << current_user
   end
 
@@ -37,8 +40,11 @@ class EventsController < ApplicationController
       @messages = @event.messages.includes(:user)
       @message = Message.new
       @entries = @event.entries.includes(:user)
+      binding.pry
     else
+      binding.pry
       redirect_back(fallback_location: root_path)
+
     end
   end
 
@@ -56,6 +62,11 @@ class EventsController < ApplicationController
       @user = User.new
     end
   end
+
+  def entry_params
+    params.require(:entry).permit(:user_id, :event_id)
+  end
+
 
   def set_event
     @event = Event.find(params[:id])

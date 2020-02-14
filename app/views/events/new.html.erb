@@ -1,14 +1,30 @@
 <div class="exhibit-container">
   <%= render partial: 'shared/main_header' %>
 </div>
-  <div class="exhibit-content">
-    <div class="exhibit-content__title">
+<div class="event-container">
+  <div class="event-content">
+    <div class="event-content__title">
       <i class="fas fa-chalkboard-teacher"></i>
       <span>イベントを作る！</span>
-      <%# ユーザーログイン機能を作成したらform_forを使う %>
-      <%# <%= form_for @exhibit do |f| %>
-      <%# 仮置きのクラス %>
-    <div class="exhibit-image">
-      <div class="exhibit-section">
-        <div class="exhibit-title">
-  
+      <%# ユーザーログイン機能を作成したらform_withを使う %>
+    </div>
+    <%= form_with model: @event, class: "form", id: "event-form" do |f| %>
+      <div class="event-image">
+        <div class="event-image__title">
+          <label>出展画像</label>
+          <span>必須</span>
+        </div>
+        <p class="event-image__text">
+          最大５枚までアップロードできます
+        </p>
+        <%# 画像アップロードするエリア %>
+        <div class="dropzone-container clearfix">
+          <%= f.fields_for :images do |i|%>
+            <%= i.file_field :image,class:"image-box",type: "file",id:"img-file" %>
+              <label for="img-file"></label>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
