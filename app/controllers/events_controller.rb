@@ -17,10 +17,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create
+    @event = Event.create(event_params)
     @entry1 = Entry.create(:event_id => @event.id, :user_id => current_user.id)
     @entry2 = Entry.create(params.require(:entry).permit(:user_id, :event_id).merge(:event_id => @event.id))
     if @event.save
+
       redirect_to "/events/#{@event.id}"
     end
 
@@ -30,6 +31,9 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.images.build
+    @event.build_address
+    @event.build_cook
+    @parents = Category.where(ancestry: nil)
     @event.users << current_user
   end
 
@@ -42,8 +46,7 @@ class EventsController < ApplicationController
       @entries = @event.entries.includes(:user)
       binding.pry
     else
-      binding.pry
-      redirect_back(fallback_location: root_path)
+      # redirect_back(fallback_location: root_path)
 
     end
   end
@@ -63,9 +66,13 @@ class EventsController < ApplicationController
     end
   end
 
-  def entry_params
-    params.require(:entry).permit(:user_id, :event_id)
+  def event_params
+    params.require(:event).permit(:title, :description, :capacity,:place,:price,:prefecture_id,:category_id, images_attributes: [:id, :image, :_destroy],address_attributes: [:id, :event_id, :date, :time, :postcode,:city,:address,:building,:phone_number,:figure],cook_attributes: [:id,:event_id,:level1,:level2,:level3,:level4,:level5]).merge(exhibitor_id: current_user.id)
   end
+
+  # def entry_params
+  #   params.require(:entry).permit(:user_id, :event_id)
+  # end
 
 
   def set_event
