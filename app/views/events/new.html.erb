@@ -11,7 +11,7 @@
     <%= form_with model: @event, class: "form", id: "event-form" do |f| %>
       <div class="event-image">
         <div class="event-image__title">
-          <label>出展画像</label>
+          <label>出展画像
           <span>必須</span>
         </div>
         <p class="event-image__text">
@@ -20,9 +20,20 @@
         <%# 画像アップロードするエリア %>
         <div class="dropzone-container clearfix">
           <%= f.fields_for :images do |i|%>
-            <%= i.file_field :image,class:"image-box",type: "file",id:"img-file" %>
-              <label for="img-file"></label>
+            <div class="image-box">
+              <%= i.file_field :image,style: "display:none",type: "file",id:"img-file" %>
+                <label for="img-file">
+                <i class="fas fa-camera"></i>
+            </div>
           <% end %>
+        </div>
+        <div class="event-image__name">
+          <%= f.label :イベント名 %>
+          <span>必須</span><br>
+          <%= f.text_field :name, class: 'input-default', placeholder: 'ここにイベント名を入力' %>
+        </div>
+        <div class="event-exhibit-btn">
+          <%= f.submit '出展', class: "btn-default btn-green"%>
         </div>
       </div>
     <% end %>
