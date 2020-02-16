@@ -19,7 +19,7 @@
         vertical-align: middle;
       }
     }
-    .event-image{
+    .event-images{
       border-top: 1px solid #eee;
       padding: 40px 2.5%;
       &__title{
@@ -41,23 +41,75 @@
       }
       .dropzone-container{
         width: 100%;
-        .image-box{
-          min-height: 162px;
-          border: 1px dashed #ccc;
-          // width: 33%;
-          background-color: #f5f5f5;
-          cursor: pointer;
-          .fa-camera{
-            position: absolute;
-            top: 95%;
-            left: 50%;
-            font-size: 14px;
-          }
+        background-color: #f5f5f5;
+        min-height: 162px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+        .fa-camera{
+          position: absolute;
+          top: 100%;
+          left: 47%;
+          font-size: 14px;
         }
+      }
+      .event-image{
+        float: left;
+        width: 20%; 
+      }
+      .event-num-1{
+        margin-left: auto;
+        background-color: #f5f5f5;
+        min-height: 162px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+      }
+      .event-num-2{
+        margin-left: auto;
+        background-color: #f5f5f5;
+        min-height: 162px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+      }
+      .event-num-3{
+        margin-left: auto;
+        background-color: #f5f5f5;
+        min-height: 162px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+      }
+      .event-num-4{
+        margin-left: auto;
+        background-color: #f5f5f5;
+        min-height: 162px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+      }
+      .event-num-5{
+        width: 100%;
+        background-color: #f5f5f5;
+        min-height: 162px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
+        .fa-camera{
+          position: absolute;
+          top: 120%;
+          left: 47%;
+          font-size: 14px;
+        }
+      }
+      .event-num-6{
+        width: 100%;
+        background-color: #f5f5f5;
+        min-height: 162px;
+        border: 1px dashed #ccc;
+        cursor: pointer;
       }
       &__name{
         font-size: 16px;
         font-weight: 600; 
+      }
+      &__description{
+        position: relative;
       }
     }
   }
