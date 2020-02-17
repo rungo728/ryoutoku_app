@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     #     binding.pry
     @event = Event.new
     @entry = Entry.new
-    binding.pry
     #   end
     # end
   end
