@@ -7,9 +7,10 @@
 
 url:http://13.230.196.160:3000/
 
-* Basic認証
+
+<!-- * Basic認証
 <br>ID: 
-<br>Password: 
+<br>Password:  -->
 
 # 開発メンバー
 * 小山薫
@@ -29,7 +30,7 @@ url:http://13.230.196.160:3000/
 # DB設計
 
 ## ER図
-<img width="1194" alt="スクリーンショット 2020-01-03 20.28.23" src="https://github.com/rungo728/ryoutoku_app/blob/master/app/assets/images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202020-01-03%2020.28.23.png">
+<img width="1194" src="https://i.gyazo.com/fb829f0c6e2bc3c19068547fc9e5412d.png">
 
 ##  usersテーブル
 
