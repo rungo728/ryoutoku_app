@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_161934) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "event_id", null: false
-    t.string "image", null: false
+    t.string "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_images_on_event_id"
