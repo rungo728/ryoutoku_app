@@ -202,7 +202,7 @@ ancestry(gem)によってツリー構造（階層）として編成する予定
 
 ## entriesテーブル
 どのユーザーがどのイベントを予約しているかわかるようにするテーブル
-Column|Type|Options|
+|Column|Type|Options|
 |------|----|-------|
 |user_id |integer|null: false, foreign_key: true|
 |event_id |integer|null: false, foreign_key: true|
