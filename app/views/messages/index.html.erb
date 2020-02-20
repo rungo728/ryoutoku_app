@@ -17,9 +17,8 @@
         <%# messagesのルーティングがeventsにネストされているため、本アプリでは、あるイベントに属しているメッセージという親子関係があります %>
         <%# form_forの第１引数@eventにはどのイベントのメッセージとして保存したいのか、第２引数@messageにはMessageモデルのからのインスタンス（Message.new）をあらかじめセット %>
         <%= form_for [@event, @message] do |f|%>
-          <%= f.text_area :content, placeholder: "出展者と語り合おう！", class: "text-message"%>
+          <%= f.text_area :content, placeholder: "イベント参加者と語り合おう！", class: "text-message"%>
           <%= f.label :image, class: "upload-image" do%>
-            <i class="fas fa-file-image"></i>
             <%= f.file_field :image, class: 'hidden'%>
           <% end %>
           <%= f.hidden_field :event_id, value: "#{@event.id}"%>
