@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_action :set_event,only: [:edit, :update]
 
   def index
-    @user_events = Event.where(exhibitor_id: @user.id).order("id DESC").limit(6)
+
     if user_signed_in?
       @entries = Entry.where(user_id: current_user.id)
       myEventIds = []
@@ -19,12 +19,11 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.save
-    binding.pry
     if @event.save
-      # redirect_to "/events/#{@event.id}"
       redirect_to root_path, notice: '出展が完了しました'
-    end
+    else
       redirect_to new_event_path, alert: '出展が完了しておりません'
+    end
     # ↓別のコントローラに移動させる
     # @entry1 = Entry.create(:event_id => @event.id, :user_id => current_user.id)
     # @entry2 = Entry.create(params.require(:entry).permit(:user_id, :event_id).merge(:event_id => @event.id))
@@ -79,7 +78,9 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :capacity,:place,:price,:prefecture_id,:category_id, images_attributes: [:id, :event_id, {content:[]}, :_destroy ],address_attributes: [:id, :event_id, :date, :time, :postcode,:city,:address,:building,:phone_number,:figure],cook_attributes: [:id,:event_id,:level1,:level2,:level3,:level4,:level5]).merge(exhibitor_id: current_user.id)
+    params.require(:event).permit(:title, :description, :capacity,:place,:price,:prefecture_id,:category_id, images_attributes: [:id, :event_id, :content, :_destroy ]).merge(exhibitor_id: current_user.id)
+    #開催場所・日時・料理工程ページ作成したらpermitに入れる
+    # ,address_attributes: [:id, :event_id, :date, :time, :postcode,:city,:address,:building,:phone_number,:figure],cook_attributes: [:id,:event_id,:level1,:level2,:level3,:level4,:level5]
   end
 
   def get_user
@@ -93,7 +94,7 @@ class EventsController < ApplicationController
 
 
   # def entry_params
-  #   params.require(:entry).permit(:user_id, :event_id).merge(:event_id => @event.id)
+  #   params.require(:entry).permit(:user_id, :event_id,images_attributes: [:id, :event_id, :content, :_destroy ]).merge(event_id: @event.id)
   # end
 
 
