@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load',function(){
   // プレビューの表示エリア
   //DataTransferオブジェクトで、データを格納する箱を作る
   var dataBox = new DataTransfer();
