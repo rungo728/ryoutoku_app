@@ -22,9 +22,9 @@
           <div class="dropzone-container event-num-0 clearfix" id="image-box__container" >
             <%= f.fields_for :images do |i|%>
               <%# <%= f.label :content,for:"img-file" %>
+              <%= i.file_field :content,name: "event[images_attributes][][content]",value:"",style: "display:none",type: "file",id:"img-file" %>
               <label for="img-file">
                 <i class="fas fa-camera"></i>
-              <%= i.file_field :content,name: "event[images_attributes][][content]",value:"",style: "display:none",type: "file",id:"img-file" %>
             <% end %>
           </div>
         </div>
@@ -47,6 +47,12 @@
           <div class="detail-add-content">
           </div>
           <div class="detail-add-content2">
+          </div>
+        <div class="event-images-exhibit-area">
+          <%= f.label :出展地域 %>
+          <span class="icon-default">必須</span><br>
+          <div class="event-images-exhibit-area__detail">
+            <%= f.collection_select :prefecture_id,Prefecture.all, :id, :name, {include_blank: "---"},class:'select-default' %>
           </div>
         </div>
         <div class="event-exhibit-btn">
