@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 2020_02_08_161934) do
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.string "capacity", null: false
-    t.string "place", null: false
-    t.integer "price", null: false
+    t.string "capacity"
+    t.string "place"
+    t.integer "price"
     t.integer "exhibitor_id", null: false
     t.integer "buyer_id"
     t.bigint "prefecture_id", null: false
