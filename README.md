@@ -11,9 +11,9 @@
 * url:http://13.230.196.160:3000/
 
 * テスト用アカウント
-予約者用
-メールアドレス: test15@gmail.com	
-パスワード: sssssss
+<br>予約者用
+<br>メールアドレス: test15@gmail.com	
+<br>パスワード: sssssss
 
 <!-- * Basic認証
 <br>ID: 
