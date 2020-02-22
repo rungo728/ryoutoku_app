@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   before_action :set_event,only: [:edit, :update]
 
   def index
-
+    #カテゴリーごとに並べる
+    @meats = Event.includes(:images).where(category_id: 158..247).order("updated_at DESC").limit(10)
+    @rices = Event.includes(:images).where(category_id: 275..342).order("updated_at DESC").limit(10)
+    @breads = Event.includes(:images).where(category_id: 580..648).order("updated_at DESC").limit(10)
+    @sweets = Event.includes(:images).where(category_id: 649..763).order("updated_at DESC").limit(10)
     if user_signed_in?
       @entries = Entry.where(user_id: current_user.id)
       myEventIds = []

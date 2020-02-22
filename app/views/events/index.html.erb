@@ -15,10 +15,138 @@
     </div>
   </div>
   <div class="dm-index">
-    <h3> 参加中のイベント一覧</h3>
+    <h3> 肉料理新着イベント</h3>
     <%= link_to "#" do %>
       もっと見る
       <i class="fas fa-chevron-right"></i>
+    <% end %>
+  </div>
+  <div class="event-index">
+    <ul class="event-index__list">
+      <%# データベースからカテゴリーごとに並べる時に使用 %>
+      <% @meats.each do |meat| %>
+        <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
+        <li class="event-index__item">  
+          <%=link_to event_path(meat),class: "events-link" do %>
+            <div class="event-box">
+              <span><%= meat.prefecture.name %>
+              </span>
+              <%# 画像アップロードするエリア %>
+              <%# <%= image_tag "ryouri6.jpeg" %>
+              <% if meat.images.present? %> 
+                <%= image_tag (meat.images.first.content.url)unless meat.images.first.content.nil? %>
+              <% end %>
+            </div>
+            <div class="event-title"> 
+              <%= meat.title + ""%>
+            </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div> 
+  <div class="dm-index">
+    <h3> ごはんもの新着イベント</h3>
+    <%= link_to "#" do %>
+      もっと見る
+      <i class="fas fa-chevron-right"></i>
+    <% end %>
+  </div>
+  <div class="event-index">
+    <ul class="event-index__list">
+      <%# データベースからカテゴリーごとに並べる時に使用 %>
+      <% @rices.each do |rice| %>
+        <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
+        <li class="event-index__item">  
+          <%=link_to event_path(rice),class: "events-link" do %>
+            <div class="event-box">
+              <span><%= rice.prefecture.name %>
+              </span>
+              <%# 画像アップロードするエリア %>
+              <%# <%= image_tag "ryouri6.jpeg" %>
+              <% if rice.images.present? %> 
+                <%= image_tag (rice.images.first.content.url)unless rice.images.first.content.nil? %>
+              <% end %>
+            </div>
+            <div class="event-title"> 
+              <%= rice.title + ""%>
+            </div>  
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div> 
+  <div class="dm-index">
+    <h3> パン料理新着イベント</h3>
+    <%= link_to "#" do %>
+      もっと見る
+      <i class="fas fa-chevron-right"></i>
+    <% end %>
+  </div>
+  <div class="event-index">
+    <ul class="event-index__list">
+      <%# データベースからカテゴリーごとに並べる時に使用 %>
+      <% @breads.each do |bread| %>
+        <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
+        <li class="event-index__item">  
+          <%=link_to event_path(bread),class: "events-link" do %>
+            <div class="event-box">
+              <span><%= bread.prefecture.name %>
+              </span>
+              <%# 画像アップロードするエリア %>
+              <%# <%= image_tag "ryouri6.jpeg" %>
+              <% if bread.images.present? %> 
+                <%= image_tag (bread.images.first.content.url)unless bread.images.first.content.nil? %>
+              <% end %>
+            </div>
+            <div class="event-title"> 
+              <%= bread.title + ""%>
+            </div>  
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="dm-index">
+    <h3> スイーツ料理新着イベント</h3>
+    <%= link_to "#" do %>
+      もっと見る
+      <i class="fas fa-chevron-right"></i>
+    <% end %>
+  </div>
+  <div class="event-index">
+    <ul class="event-index__list">
+      <%# データベースからカテゴリーごとに並べる時に使用 %>
+      <% @sweets.each do |sweet| %>
+        <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
+        <li class="event-index__item">  
+          <%=link_to event_path(sweet),class: "events-link" do %>
+            <div class="event-box">
+              <span><%= sweet.prefecture.name %>
+              </span>
+              <%# 画像アップロードするエリア %>
+              <%# <%= image_tag "ryouri6.jpeg" %>
+              <% if sweet.images.present? %> 
+                <%= image_tag (sweet.images.first.content.url)unless sweet.images.first.content.nil? %>
+              <% end %>
+            </div>
+            <div class="event-title"> 
+              <%= sweet.title + ""%>
+            </div>  
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="dm-index">
+    <% if user_signed_in? %>
+      <div>
+        <%= @user.nickname + 'さんが参加中のイベント一覧' %>
+      </div>
+      <%= link_to "#" do %>
+        もっと見る
+        <i class="fas fa-chevron-right"></i>
+      <% end %>
     <% end %>
   </div>
   <% if user_signed_in? %> 
@@ -28,13 +156,13 @@
         <% @anotherEntries.each do |entry| %>
           <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
           <li class="event-index__item">  
-            <%=link_to event_messages_path(entry.event),class: "dm-link" do %>
+            <%=link_to event_messages_path(entry.event),class: "events-link" do %>
               <div class="event-box">
                 <span><%= entry.event.prefecture.name %>
                 </span>
                 <%# 画像アップロードするエリア %>
-                <%= image_tag "ryouri2.jpeg" %>
-                <%# <%= image_tag entry.event.images.content.first.content,class: "event-image" %> %>
+                <%# <%= image_tag "ryouri2.jpeg" %>
+                <%= image_tag(entry.event.images.first.content.url)unless entry.event.images.first.content.nil? %>
               </div>
               <div class="event-title"> 
                 <%= entry.event.title + ""%>
