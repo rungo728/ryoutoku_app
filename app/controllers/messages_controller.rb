@@ -4,19 +4,15 @@ class MessagesController < ApplicationController
   before_action :set_event
 
   def index
-    @message = Message.new
+    @message =  Message.new
     # イベントに所属する全てのメッセージである@messagesを定義
     @messages = @event.messages.includes(:user)
   end
 
   def create
-    if Entry.where(:user_id => current_user.id, :event_id => params[:message][:event_id]).present?
-      @message = Message.create(message_params)
-      # redirect_to "/events/#{@message.event_id}"
-      binding.pry
-    else
-      redirect_back(fallback_location: root_path)
-    end
+    @message = @event.messages.new(message_params)
+    @message.save
+    binding.pry
     if @message.save
       # 本来はevent_messages_path seedでイベントの仮情報を入れたら変更
       redirect_to event_messages_path(@event), notice: 'メッセージが送信されました'
@@ -25,6 +21,13 @@ class MessagesController < ApplicationController
       flash.now[:alert] = 'メッセージを入力してください。'
       render :index
     end
+    # if Entry.where(:user_id => current_user.id, :event_id => params[:message][:event_id]).present?
+    #   @message = Message.create(message_params)
+    #   # redirect_to "/events/#{@message.event_id}"
+    # else
+    #   redirect_back(fallback_location: root_path)
+    # end
+
   end
   
   private
