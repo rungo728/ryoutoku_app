@@ -48,7 +48,7 @@
       .event-index__item{
         width: 33.3333%;
         box-sizing: border-box;
-        .dm-link{
+        .events-link{
           width: 100%;
           box-shadow: rgba(0,0,0,0.18) 0px 2px 4px;
           display: inline-block;
@@ -90,7 +90,23 @@
     }
   }
 }
-
+@media screen and (min-width: 768px){
+.toppage-container{
+  .event-index{
+    &__list{
+      .event-index__item{
+        width: 20%;
+        padding: 10px;
+        .events-link{
+          .event-title{
+            height: 55px;
+          }
+        }
+      }
+    }
+  }
+}
+}
 text {
   /* 色はお好みで */
   stroke: black;
