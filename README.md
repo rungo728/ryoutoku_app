@@ -11,17 +11,26 @@
 * url:http://13.230.196.160:3000/
 
 * テスト用アカウント
-<br>予約者用
+<br>出展者・予約者用
 <br>メールアドレス: test15@gmail.com	
 <br>パスワード: sssssss
 
 <!-- * Basic認証
 <br>ID: 
-<br>Password:  -->
-
+<br>Pas
+sword:  -->
 <!-- # 開発メンバー
 * 小山薫 -->
+# プレビュー
+トップページ<br>
+<img src="https://i.gyazo.com/12aa05b485157026fb5217495c058b55.png" alt="Image from Gyazo" width="790"/>
 
+イベント参加者DMルーム<br>
+<img src="https://i.gyazo.com/91efe125aef36c25fa33c95eb4c6608e.png" alt="Image from Gyazo" width="1069"/>
+
+イベント予約確認ページ（料理お手伝い割引機能）<br>
+<img src="https://i.gyazo.com/415618f2f3b0849b1ee7b09e6f80d199.png" alt="Image from Gyazo" width="1069"/>
+<br>
 # 制作環境
 * Ruby on Rails '5.2.3'
 * mysql2 '>= 0.4.4', '< 0.6.0'
