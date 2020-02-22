@@ -87,6 +87,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 # レコードを追加するためのgem
 gem 'seed-fu'
+# クレジットカード処理を実現するためのgem
+gem 'payjp'
 
 gem 'devise'
 gem 'haml-rails'
