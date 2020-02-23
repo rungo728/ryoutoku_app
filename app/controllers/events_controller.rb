@@ -10,9 +10,10 @@ class EventsController < ApplicationController
     @breads = Event.includes(:images).where(category_id: 580..648).order("updated_at DESC").limit(10)
     @sweets = Event.includes(:images).where(category_id: 649..763).order("updated_at DESC").limit(10)
     if user_signed_in?
+      # ログインユーザが持っている複数のentryをEntryテーブルから探して変数にいれます
       @entries = Entry.where(user_id: current_user.id)
       myEventIds = []
-
+      # myEventIdsにログインユーザが持っているそれぞれのentryにおけるeventのid情報を渡す
       @entries.each do | entry |
         myEventIds << entry.event.id
       end
@@ -64,6 +65,7 @@ class EventsController < ApplicationController
   # イベント詳細画面
   def show
     @event = Event.find(params[:id])
+    # @user = User.find_by(id: @event.exhibitor_id)
     if Entry.where(:user_id => current_user.id, :event_id => @event.id).present?
       @messages = @event.messages.includes(:user)
       @message = Message.new
@@ -97,9 +99,9 @@ class EventsController < ApplicationController
 
 
 
-  # def entry_params
-  #   params.require(:entry).permit(:user_id, :event_id,images_attributes: [:id, :event_id, :content, :_destroy ]).merge(event_id: @event.id)
-  # end
+  def entry_params
+    params.require(:entry).permit(:user_id, :event_id).merge(event_id: @event.id)
+  end
 
 
   def set_event
