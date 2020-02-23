@@ -55,6 +55,14 @@
             <%= f.collection_select :prefecture_id,Prefecture.all, :id, :name, {include_blank: "---"},class:'select-default' %>
           </div>
         </div>
+        <div class="event-images-capacity">
+          <%= f.label :参加人数 %>
+          <span class="icon-default">必須</span><br>
+          <div class="event-images-capacity__detail">
+            <%# {}を挟むとclassを読み込んでくれる %>
+            <%= f.select :capacity,[["---","---"],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]],{},{class:'select-default'} %>
+          </div>
+        </div>
         <div class="event-exhibit-btn">
           <%= f.submit '出展', class: "btn-default btn-green"%>
         </div>
