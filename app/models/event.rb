@@ -9,6 +9,7 @@ class Event < ApplicationRecord
   has_one :cook
   has_one :address
   has_many :users, through: :messages
+  has_many :users, through: :entries
 
   #イメージ・開催場所日時・料理工程選択をDB登録するために記載
   accepts_nested_attributes_for :images,allow_destroy: true
