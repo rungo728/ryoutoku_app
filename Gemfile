@@ -89,6 +89,8 @@ gem 'mini_magick'
 gem 'seed-fu'
 # クレジットカード処理を実現するためのgem
 gem 'payjp'
+# 環境変数を簡単に設定するためのgem
+gem 'dotenv-rails'
 
 gem 'devise'
 gem 'haml-rails'
