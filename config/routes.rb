@@ -12,12 +12,19 @@ Rails.application.routes.draw do
     end
     member do
       get 'confirmation'
+      post 'buy'
+      get 'done'
     end
     # seedで仮情報をイベントテーブルに入れたらこの位置に記述を移す
     resources :messages
   end
 
-  resources :exhibits do    
+  resources :cards, only: [:new, :show] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+      post 'delete', to: 'cards#delete'
+    end
   end
 
      
