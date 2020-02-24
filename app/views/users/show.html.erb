@@ -2,7 +2,7 @@
   <%= render partial: 'shared/main_header' %>
   <div class="l-container clearfix">
     <div class="l-content">
-      <section class="user-dm-menu">
+      <section class="user-menu">
         <h2 class="user-title">
           <%= @user.nickname + "さんのページ"%>
         </h2> 
@@ -15,7 +15,13 @@
               <%= e.hidden_field :user_id, :value => @user.id %>
             <% end %> 
             <%= f.submit "ダイレクトメッセージを始める" ,class: "btn-default btn-green message-submit" %>
-          <% end %>           
+          <% end %>
+        </div>
+        <%# 一時的にここからカード情報登録ページに遷移させる %>
+        <div class="payment-registration">
+          <%= link_to new_card_path(current_user.id), class:"btn-default btn-green" do%>
+            お支払い方法選択
+          <% end %>
         </div>
       </section>
     </div>
