@@ -1,0 +1,48 @@
+<div class="exhibit-container">
+  <%= render partial: 'shared/common_header' %>
+</div>
+<div class="card-container clearfix">
+  <div class="card-content">
+    <section class="l-chapter-container">
+      <h2 class="l-chapter-head">
+        支払い方法
+      </h2>
+      <%= form_with model:@card, url: pay_cards_path, method: :post, html: {class: "card-registration",id: 'charge-form', name: "inputForm"} do |f| %>
+        <div class="event-cards__information">
+          <%= f.label :カード番号 %>
+          <span class="icon-default">必須</span><br>
+          <%= f.text_field :card_number ,class: 'input-default', placeholder: '半角数字のみ',maxlength: "16", type: "text", id: "card_number" %>
+        </div>
+        <ul>
+          <li>
+            <img src="//assets.street-academy.com/assets/payments/supported_methods-74cee61595e49d4ad3a09c4ddc1f6f142ab0b8c865c26ef742bd856bd59c5665.png",width="480", height="30">
+          </li>
+        </ul>
+        <div class="event-cards__expire">
+          <%= f.label :有効期限 %>
+          <span class="icon-default">必須</span><br>
+          <%= f.select :exp_month,[["---","---"],["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{},{class:'select-default half', name: "exp_month", id:"exp_month"} %>
+          <span>月</span>
+          <%= f.select :exp_year,[["---","---"],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029],["30",2030]],{},{class:'select-default half', name: "exp_year", id:"exp_year"} %>
+          <span>年</span><br>
+        </div>
+        <div class="event-cards__expire">
+          <%= f.label :セキュリティーコード %>
+          <span class="icon-default">必須</span><br>
+          <%= f.text_field :cvc ,class: 'input-default', placeholder: 'カード背面4桁もしくは3桁の番号',maxlength: "4", id: "cvc", type: "text" %>
+        </div>
+        <div class="event-cards__description">
+          <i class="fas fa-question-circle"></i>
+          <span>
+            <%= link_to "#", class:"about" do%>
+              カード裏面の番号とは？
+            <% end %>
+          </span>
+        </div>
+        <div id="card_token">
+          <%= f.submit '登録する', id: "token_submit", class: "btn-default btn-green "%>
+        </div>
+      <% end %>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.card-container{
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  .card-content{
+    .l-chapter-container{
+      .l-chapter-head{
+        padding: 12px 4%;
+        text-align: center;
+        font-size: 18px;
+
+      }
+      .card-registration{
+        max-width: 430px;
+        margin: 0 auto;
+
+        .event-cards__expire{
+          margin: 24px 0 0;
+        }
+      }
+    }
+  }
+}
