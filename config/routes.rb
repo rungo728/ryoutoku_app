@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   end
 
      
-  resources :users do
-    
+  resources :users, only: [:show, :edit] do
+    collection do
+      post 'show', to: 'users#show'
+    end
   end
 end
