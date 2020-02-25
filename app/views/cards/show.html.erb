@@ -1,0 +1,29 @@
+<div class="exhibit-container">
+  <%= render partial: 'shared/common_header' %>
+</div>
+<div class="card-container clearfix">
+  <div class="card-content">
+    <section class="l-chapter-container">
+      <h2 class="l-chapter-head">
+        支払い方法
+      </h2>
+      <%= form_with model:@card, url: delete_cards_path, method: :post, html: {class: "card-registration",id: 'charge-form', name: "inputForm"} do |f| %>
+        <div class="event-cards__information">
+          <%= f.label :登録クレジットカード情報 %>
+        </div>
+        <ul class="settings-payment-list">
+          <li>
+            <div class="l-step-content">
+              <%# <i class="fab fa-cc-visa"></i> %>
+              <img src="//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?465897195", width="49", height="20">
+              <br>
+              <%= "**** **** **** " + @card_info.last4 %>
+              <br>
+              <%= @exp_month + " / " + @exp_year %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    </section>
+  </div>
+</div>
