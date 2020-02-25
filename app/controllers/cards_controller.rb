@@ -55,21 +55,37 @@ class CardsController < ApplicationController
       # クレジットカードの有効期限を取得
       @exp_month = @card_info.exp_month.to_s
       @exp_year = @card_info.exp_year.to_s.slice(2,3)
+
       # クレジットカード会社を取得したので、カード会社の画像をviewに表示させるため、ファイルを指定する。
-      case @card_brand
-      when "Visa"
-        @card_image = "visa.svg"
-      when "JCB"
-        @card_image = "jcb.svg"
-      when "MasterCard"
-        @card_image = "master-card.svg"
-      when "American Express"
-        @card_image = "american_express.svg"
-      when "Diners Club"
-        @card_image = "dinersclub.svg"
-      when "Discover"
-        @card_image = "discover.svg"
-      end
+      # カードブランドうまく分けられる様になったらコメントアウト外す
+      # case @card_brand
+      # when "Visa"
+      #   @card_image = "visa.svg"
+      # when "JCB"
+      #   @card_image = "jcb.svg"
+      # when "MasterCard"
+      #   @card_image = "master-card.svg"
+      # when "American Express"
+      #   @card_image = "american_express.svg"
+      # when "Diners Club"
+      #   @card_image = "dinersclub.svg"
+      # when "Discover"
+      #   @card_image = "discover.svg"
+      # end
+    end
+  end
+
+  def delete
+    # 今回はクレジットカードを削除するだけでなく、PAY.JPの顧客情報も削除する。これによりpayメソッドが複雑にならない。
+    # PAY.JPの秘密鍵をセットして、PAY.JPから情報をする。
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    # PAY.JPの顧客情報を取得
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+    customer.delete # PAY.JPの顧客情報を削除
+    if @card.destroy # App上でもクレジットカードを削除
+      redirect_to users_path, notice: "削除しました"
+    else
+      redirect_to users_path, alert: "削除できませんでした"
     end
   end
 
