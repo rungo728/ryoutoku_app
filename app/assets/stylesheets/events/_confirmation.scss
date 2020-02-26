@@ -154,5 +154,21 @@
         text-align: center;
       }
     }
+    .payment-method{
+      padding: 24px 12px;
+
+      .l-left{
+        font-size: 18px;
+        font-weight: 600;
+        float: left;
+      }
+      .card-info-fix{
+        display: block;
+        text-align: right; 
+      }
+      .settings-payment-list{
+        margin: 24px 0;
+      }
+    }
   }
 }

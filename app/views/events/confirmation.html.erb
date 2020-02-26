@@ -83,12 +83,40 @@
         イベント予約価格 ￥<span id="total"> </span>
       </div>
     <div class="event-reservation-btn">
+      <%# <%= form_for @event, url: buy_event_path, method: :post, html: {class: “event-reservation-form”} do |f| %> 
+       <%# <script class="payjp-button" src="https://checkout.pay.jp/" type="text/javascript" ,data-key= ENV["PAYJP_KEY"] ,data-text="予約を確定する"}></script>%>
+      <%# <% end %> 
       <%# 本来は予約確定画面に遷移だが、一時的にイベント参加者チャット画面に遷移 %>
       <%= link_to event_messages_path(current_user.id), class:"btn-default btn-green" do%>
         予約を確定する
       <% end %>
     </div>
-    
+    <div class="payment-method">
+      <h2 class="l-left">
+        支払い方法
+      </h2>
+      <%= link_to new_card_path(current_user.id), class:"card-info-fix" do%>
+        変更する
+        <i class="fas fa-arrow-right"></i>
+      <% end %>
+      <ul class="settings-payment-list">
+        <li>
+          <div class="l-step-content">
+            <% if @card.present? %>
+              <%# <i class="fab fa-cc-visa"></i> %>
+              <img src="//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?465897195", width="49", height="20">
+              <br>
+              <%= "**** **** **** " + @card_info.last4 %>
+              <br>
+                <%# 有効期限 %>
+              <%= @exp_month + " / " + @exp_year %>
+            <% else %>
+              <%= " / " %>
+            <% end %> 
+          </div>
+        </li>
+      </ul>
+    </div>
   </section> 
 </div>
   
