@@ -1,13 +1,13 @@
 // レベルをチェックボックスで選んで、割引料金欄に合計額が表示される処理
 discount=new Array();//チェックの有無を格納する配列
-discount[0]=500;
-discount[1]=1000;
-discount[2]=1500;
-discount[3]=2000;
-discount[4]=2500;
+discount[3]=500;
+discount[4]=1000;
+discount[5]=1500;
+discount[6]=2000;
+discount[7]=2500;
 function keisan(){
 goukei=0;
-for(i=0;i<=4;i++){
+for(i=0;i<=7;i++){
 if(document.cooking_details.elements[i].checked==true){
 goukei=goukei+discount[i];
 }
@@ -15,26 +15,28 @@ goukei=goukei+discount[i];
 document.cooking_details.total.value=goukei;
 }
 // チェックボックスを２つ選んだらそれ以上チェックできないようにする処理
-checkbox=5;   //チェックボックスの数。
-lim =2;   //チェックできる数
-Limit = new Array();   //チェックの有無を格納する配列
-function limit(){
-v=0;   //チェックの合計
-for (i=0; i<checkbox; i++){
-Limit[i]=i;
-if (document.cooking_details.elements[i].checked){Limit[i]="chk";　
-v++;}
-}
-if(v>=lim){
-for (i=0; i<checkbox; i++){
-if(Limit[i]=="chk"){document.cooking_details.elements[i].disabled = "";}
-else{document.cooking_details.elements[i].disabled = true;}
-}
-}
-else{for (i=0; i<checkbox; i++)
-document.cooking_details.elements[i].disabled = "";}
+var limit =2; //チェックできる数
+Flag = new Array(); //チェックの有無を格納する配列
 
+function Climit(){
+  var v=0; //チェックの合計
+  var Myname = document.getElementsByName("c2");// 指定したnameの要素をすべて取得
+  for (i=0; i<Myname.length; i++){//Myname.lengthはc2の数、その数だけiを繰り返してc2のそれぞれの情報をMyname[i] に格納します。
+      Flag[i]=i; // 配列Flagを初期化
+  if(Myname[i].checked){Flag[i]="chk"; // チェックが入っていれば文字列 "chk" を代入
+  v++;}//チェックの合計数を 1 増やします
+  }
+  if(v>=limit){ //チェックの合計数が制限数になれば
+  alert("チェックは"+limit+"つまでです")
+  for (i=0; i<Myname.length; i++){
+  if(Flag[i]=="chk"){Myname[i].disabled =false;}//チェックの数が制限数になればチェックが入っていれば有効化
+  else{Myname[i].disabled = true;}// その他はすべて無効化にします
+  }
+  }
+  else{for (i=0; i<Myname.length; i++)
+  Myname[i].disabled =false;}//（入力可能 有効）
 }
+
 // 割引価格を差し引いた金額をイベント予約価格に反映させる処理
 function update_price(){
     
@@ -46,13 +48,6 @@ $('input[type="text"]').on('keyup change', function() {
   update_price();
 });
 });
-// ここがまだ不完全↓
-// // 割引額の合計を <div class="event_middle-row__profit">に表示させる
-// window.addEventListener('DOMContentLoaded', function(e){
-//   var val_a=parseInt(document.querySelector('span#cooking_waribiki').textContent);
-//   var val_b=parseInt(document.querySelector('span#cooking_waribiki2').textContent);
-//   document.querySelector('span#result').textContent=val_a+val_b;
-// });
 $(document).on('turbolinks:load', function(){
   // $('#price-setting').ready(function(){
   //   var inputPrice = $('#price-setting').val();
