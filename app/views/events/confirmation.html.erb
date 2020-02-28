@@ -4,7 +4,8 @@
 <div class="payment-container">
   <section class="payment_details">
     <h2 class="payment_details__title">予約内容の確認</h2>
-    <form class="payment-form" name="cooking_details">
+    <%# <form class="payment-form" name="cooking_details"> %>
+    <%= form_for @event, html: {class: "payment-form",id: 'charge-form', name: "cooking_details"} do |f| %>
       <section class="payment_summary">
         <div class="payment_summary-inner">
           <h3 class="payment_summary-inner__photo">
@@ -47,35 +48,42 @@
           <table class="cooking_summary-inner__table" border="0">
             <tr>
             <td>レベル１(500円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit();update_price()">具材買い出しの手伝い</td>
+            <td><input type="checkbox" name="c2" onclick="keisan();Climit();update_price()">具材買い出しの手伝い</td>
             </tr>
             <tr>
             <td>レベル２(1000円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit();update_price()">キャベツを切って下ゆでする</td>
+            <td><input type="checkbox" name="c2" onclick="keisan();Climit();update_price()">キャベツを切って下ゆでする</td>
             </tr>
             <tr>
             <td>レベル３(1500円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit();update_price()">玉ねぎ・人参をみじん切りする</td>
+            <td><input type="checkbox" name="c2" onclick="keisan();Climit();update_price()">玉ねぎ・人参をみじん切りする</td>
             </tr>
             <tr>
             <td>レベル４(2000円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit();update_price()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
+            <td><input type="checkbox" name="c2" onclick="keisan();Climit();update_price()">豚ひき肉と野菜を混ぜて肉ダネを作る</td>
             </tr>
             <tr>
             <td>レベル５(2500円割引)</td>
-            <td><input type="checkbox" onclick="keisan();limit();update_price()">肉ダネをキャベツで巻き出汁を取ったスープで茹でる</td>
+            <td><input type="checkbox" name="c2" onclick="keisan();Climit();update_price()">肉ダネをキャベツで巻き出汁を取ったスープで茹でる</td>
             </tr> 
             <tr>
             <td>価格</td>
-            <td>￥<input id="price" type="text" size="40" value=7000></td>
+            <%# ここで出展の時に登録した価格を表示させる %>
+            <td>￥
+            <%= f.text_field :price, value: @event.price ,id: "price" ,type: "text", size: "40",class: 'input-field' %>
+            <%# <input id="price" type="text" size="40" value="" > %>
+            </td>
             </tr>
             <td><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
-            <td>￥<input id="discount" type="text" name="total" value="0" ></td>
+            <td>￥
+            <%# <%= f.text_field :total, value: "0" ,id: "discount" ,type: "text", size: "40",class: 'input-field' %>
+            <input id="discount" type="text" name="total" value="0" ></td>
             </tr>
           </table>
         </div>
       </section>
-    </form>
+    <% end %>
+    <%# </form> %>
   </section>
   <section class="event_reservation payment_fixed-footer">
     <div class="event_reservation-inner">
@@ -83,8 +91,8 @@
         イベント予約価格 ￥<span id="total"> </span>
       </div>
     <div class="event-reservation-btn">
-      <%# <%= form_for @event, url: buy_event_path, method: :post, html: {class: “event-reservation-form”} do |f| %> 
-       <%# <script class="payjp-button" src="https://checkout.pay.jp/" type="text/javascript" ,data-key= ENV["PAYJP_KEY"] ,data-text="予約を確定する"}></script>%>
+      <%# <%= form_for @event, url: buy_event_path, method: :post, html: {class: “event-reservation-form”} do |f| %>
+        <%# <script class="payjp-button" ,src="https://checkout.pay.jp/" ,type="text/javascript" ,data-key= "ENV["PAYJP_KEY"]" ,data-text="予約を確定する"></script> %>
       <%# <% end %> 
       <%# 本来は予約確定画面に遷移だが、一時的にイベント参加者チャット画面に遷移 %>
       <%= link_to event_messages_path(current_user.id), class:"btn-default btn-green" do%>
