@@ -97,6 +97,26 @@ class EventsController < ApplicationController
     end
   end
 
+  # イベント予約の為にpayjpへ決済情報とトークンを送る際の定義を記述
+  def buy
+    @event = Event.find(params[:id])
+    @card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+    # 請求を発行
+    charge = Payjp::Charge.create(
+    amount: @event.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
+    )
+    redirect_to action: :done
+  end
+
+  # 商品購入完了画面
+  def done
+    @item_buyer = Item.find(params[:id])
+    @item_buyer.update(buyer_id: current_user.id)
+  end
+
   private
 
   def event_params
