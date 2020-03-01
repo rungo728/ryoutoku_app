@@ -90,7 +90,7 @@
       <%#<% unless @user.id == current_user.id %>
       <%# イベントの参加人数が定員に達したときにbuyer_idに値が入り受付が終了する %>
       <% if @event.buyer_id.nil? %>
-        <%= link_to confirmation_event_path(current_user.id), class:"btn-default btn-green" do%>
+        <%= link_to confirmation_event_path(), class:"btn-default btn-green" do%>
           予約画面に進む
         <% end %>
       <% else %>
