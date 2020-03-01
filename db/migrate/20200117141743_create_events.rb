@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.text :description,            null: false
       t.integer :capacity,            null: false
       t.string :place
-      t.integer :price
+      t.integer :price,               null: false
       t.integer :exhibitor_id,        null: false, foreign_key: true
       t.integer :buyer_id,            foreign_key: true
       t.references :prefecture,       null: false, foreign_key: true
