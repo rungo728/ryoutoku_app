@@ -1,13 +1,13 @@
 // レベルをチェックボックスで選んで、割引料金欄に合計額が表示される処理
 discount=new Array();//チェックの有無を格納する配列
-discount[3]=500;
-discount[4]=1000;
-discount[5]=1500;
-discount[6]=2000;
-discount[7]=2500;
+discount[2]=500;
+discount[3]=1000;
+discount[4]=1500;
+discount[5]=2000;
+discount[6]=2500;
 function keisan(){
 goukei=0;
-for(i=0;i<=7;i++){
+for(i=0;i<=6;i++){
 if(document.cooking_details.elements[i].checked==true){
 goukei=goukei+discount[i];
 }
@@ -42,6 +42,7 @@ function update_price(){
     
   var result = $('#price').val() - $('#discount').val();
   $('#total').text(result);
+  // $('.update').data('sample')
 }
 $(function() {
 $('input[type="text"]').on('keyup change', function() {
