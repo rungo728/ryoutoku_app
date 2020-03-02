@@ -5,7 +5,8 @@
   <section class="payment_details">
     <h2 class="payment_details__title">予約内容の確認</h2>
     <%# <form class="payment-form" name="cooking_details"> %>
-    <%= form_for @event, html: {class: "payment-form",id: 'charge-form', name: "cooking_details"} do |f| %>
+    <%= form_for [@event,@entry],url: buy_event_path, method: :post, html: {class: "payment-form",id: 'charge-form', name: "cooking_details"} do |f| %>
+    <%# <%= form_for @event, html: {class: "payment-form",id: 'charge-form', name: "cooking_details"} do |f| %>
       <section class="payment_summary">
         <div class="payment_summary-inner">
           <h3 class="payment_summary-inner__photo">
@@ -80,25 +81,32 @@
             <input id="discount" type="text" name="total" value="0" ></td>
             </tr>
           </table>
+          <div class="event_reservation__price">
+            イベント予約価格 ￥
+            <span class="total" id="total" > </span>
+          </div>
         </div>
       </section>
+      <div class="event-reservation-btn">
+        <script class="payjp-button" src="https://checkout.pay.jp/" type="text/javascript" data-key="pk_test_222476d5aeab3536372b3f81" data-text="予約を確定する"></script>
+      </div>
     <% end %>
     <%# </form> %>
   </section>
   <section class="event_reservation payment_fixed-footer">
     <div class="event_reservation-inner">
-      <div class="event_reservation-inner__price">
-        イベント予約価格 ￥<span id="total"> </span>
-      </div>
-    <div class="event-reservation-btn">
+      <%# <div class="event_reservation-inner__price">
+        イベント予約価格 ￥<span id="total" value="update"> </span>
+      </div> %>
+    <%# <div class="event-reservation-btn"> %>
       <%# <%= form_for @event, url: buy_event_path, method: :post, html: {class: “event-reservation-form”} do |f| %>
         <%# <script class="payjp-button" ,src="https://checkout.pay.jp/" ,type="text/javascript" ,data-key= "ENV["PAYJP_KEY"]" ,data-text="予約を確定する"></script> %>
-      <%# <% end %> 
+      <%# <% end %>
       <%# 本来は予約確定画面に遷移だが、一時的にイベント参加者チャット画面に遷移 %>
-      <%= link_to event_messages_path(current_user.id), class:"btn-default btn-green" do%>
-        予約を確定する
-      <% end %>
-    </div>
+      <%# <%= link_to event_messages_path(current_user.id), class:"btn-default btn-green" do%>
+        <%# 予約を確定する %>
+      <%# <% end %>
+    <%# </div> %>
     <div class="payment-method">
       <h2 class="l-left">
         支払い方法
