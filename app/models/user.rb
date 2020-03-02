@@ -11,9 +11,9 @@ class User < ApplicationRecord
   
   has_many :messages,dependent: :destroy
   has_many :entries, dependent: :destroy
-  has_many :events
   has_many :comments
   has_many :cards
+  has_many :events, through: :entries
   has_many :events, through: :messages
   has_one  :personal
   accepts_nested_attributes_for :personal
