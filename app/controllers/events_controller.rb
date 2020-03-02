@@ -17,7 +17,7 @@ class EventsController < ApplicationController
       @entries.each do | entry |
         myEventIds << entry.event.id
       end
-      @anotherEntries = Entry.where(event_id: myEventIds).where('user_id != ?', @user.id)
+      @anotherEntries = Entry.where(event_id: myEventIds).where('user_id != ?', @user.id).order("updated_at DESC").limit(10)
     end
   end
 
@@ -65,7 +65,7 @@ class EventsController < ApplicationController
   # イベント詳細画面
   def show
     @event = Event.find(params[:id])
-    # @user = User.find_by(id: @event.exhibitor_id)
+    @user = User.find_by(id: @event.exhibitor_id)
     if Entry.where(:user_id => current_user.id, :event_id => @event.id).present?
       @messages = @event.messages.includes(:user)
       @message = Message.new
@@ -79,6 +79,7 @@ class EventsController < ApplicationController
   # イベント予約確認画面
   def confirmation
     @event = Event.find(params[:id])
+    @entry = Entry.new
     @card = Card.where(user_id: current_user.id).first
     if @card.present?
       # 登録している場合,PAY.JPからカード情報を取得する
@@ -100,21 +101,30 @@ class EventsController < ApplicationController
   # イベント予約の為にpayjpへ決済情報とトークンを送る際の定義を記述
   def buy
     @event = Event.find(params[:id])
+    @entry = Entry.new(:event_id => @event.id, :user_id => current_user.id)
+    binding.pry
+    @entry.save
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     # 請求を発行
     charge = Payjp::Charge.create(
-    amount: @event.price,
+    amount: @event.price,#支払金額
+    # customer:  @card.customer_id,#顧客ID
     card: params['payjp-token'],
     currency: 'jpy'
     )
     redirect_to action: :done
   end
 
-  # 商品購入完了画面
+  # イベント予約完了画面
   def done
-    @item_buyer = Item.find(params[:id])
-    @item_buyer.update(buyer_id: current_user.id)
+    @event = Event.find(params[:id])
+    @entries = Entry.where(event_id: @event.id).count
+    binding.pry
+    if @entries == @event.capacity
+      @event_buyer = Event.find(params[:id])
+      @event_buyer.update(buyer_id: current_user.id)
+    end
   end
 
   private
