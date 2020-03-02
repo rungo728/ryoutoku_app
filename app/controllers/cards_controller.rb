@@ -14,7 +14,6 @@ class CardsController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     # jsで作成したpayjpTokenがちゃんと入っているか？
     if params['payjp-token'].blank?
-      binding.pry
       redirect_to action: "new"
     else
       # トークンがちゃんとあれば進めて、PAY.JPに登録されるユーザーを作成します。
@@ -28,7 +27,6 @@ class CardsController < ApplicationController
       # PAY.JPのユーザーが作成できたので、cardモデルを登録します。
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       @card.save
-      binding.pry
       if @card.save
         redirect_to cards_path, notice: '登録が完了しました'
 
