@@ -87,18 +87,26 @@
     </table>
     <div class="event-reservation-btn">
       <%#イベントの編集・削除機能を実装するときにunless条件分岐を使う %>
-      <%#<% unless @user.id == current_user.id %>
-      <%# イベントの参加人数が定員に達したときにbuyer_idに値が入り受付が終了する %>
-      <% if @event.buyer_id.nil? %>
-        <%= link_to confirmation_event_path(), class:"btn-default btn-green" do%>
-          予約画面に進む
+      <% unless @user.id == current_user.id %>
+        <%# イベントの参加人数が定員に達したときにbuyer_idに値が入り受付が終了する %>
+        <% if @event.buyer_id.nil? %>
+          <%= link_to confirmation_event_path(), class:"btn-default btn-green" do%>
+            予約画面に進む
+          <% end %>
+        <% else %>
+          <div class="event-reservation-btn-desabled btn-default">
+            受付終了しました
+          </div>
         <% end %>
       <% else %>
-        <div class="event-reservation-btn-desabled btn-default">
-          受付終了しました
-        </div>
+        <%# 編集と削除部分は次のアプリ作成での課題とする %>
+        <%= link_to "#", class:"btn-default btn-green " do%>
+          編集する
+        <% end %>
+        <%= link_to "#", class:"btn-default btn-green" do%>
+          削除する
+        <% end %>
       <% end %>
-      <%# <% end %>
     </div>
   </div>
 </section>
