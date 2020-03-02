@@ -63,6 +63,13 @@
             <%= f.select :capacity,[["---","---"],[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10]],{},{class:'select-default'} %>
           </div>
         </div>
+        <div class="event-images-price">
+          <%= f.label :参加価格 %>
+          <span class="icon-default">必須</span><br>
+          <div class="event-images-price__detail">
+            <%= f.text_field :price, class: "input-default exhibit_value-box", id: "price-setting", placeholder: "例) 5000" %>
+          </div>
+        </div>
         <div class="event-exhibit-btn">
           <%= f.submit '出展', class: "btn-default btn-green"%>
         </div>
