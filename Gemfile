@@ -85,6 +85,8 @@ gem 'ancestry'
 #画像をアップロードするためのgem
 gem 'carrierwave'
 gem 'mini_magick'
+#S3にアップロードするためのgem
+gem 'fog-aws'
 # レコードを追加するためのgem
 gem 'seed-fu'
 # クレジットカード処理を実現するためのgem
