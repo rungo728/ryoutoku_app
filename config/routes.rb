@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     # seedで仮情報をイベントテーブルに入れたらこの位置に記述を移す
     resources :messages
+    resources :entries
   end
 
   resources :cards, only: [:new, :show] do
