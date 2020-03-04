@@ -10,10 +10,7 @@ CarrierWave.configure do |config|
     config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_directory  = 'ryoutoku'
-    config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/ryoutoku'
-
-    # NOTE: AWS側の設定を変えなくても、この１行の設定でアップロードできた
-    config.fog_public = true # ←コレ
+    config.asset_host = 'https://ryoutoku.s3.amazonaws.com'
     config.fog_credentials = {
       provider: 'AWS',
       # aws_access_key_id: ENV["AWS_ACCESS_KEY_ID"],
