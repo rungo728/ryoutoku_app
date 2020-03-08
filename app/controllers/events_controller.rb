@@ -17,7 +17,10 @@ class EventsController < ApplicationController
       @entries.each do | entry |
         myEventIds << entry.event.id
       end
-      @anotherEntries = Entry.where(event_id: myEventIds).where('user_id != ?', @user.id).order("updated_at DESC").limit(10)
+      @anotherEntries = Entry.where(event_id: myEventIds).where(user_id: @user.id).order("updated_at DESC").limit(10)
+      # 自分が参加していないイベントを出した場合には下記の記述でOK
+      # @anotherEntries = Entry.where(event_id: myEventIds).where('user_id != ?', @user.id).order("updated_at DESC").limit(10)
+      binding.pry
     end
   end
 
@@ -102,7 +105,6 @@ class EventsController < ApplicationController
   def buy
     @event = Event.find(params[:id])
     @entry = Entry.new(:event_id => @event.id, :user_id => current_user.id)
-    binding.pry
     @entry.save
     @card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
@@ -120,7 +122,6 @@ class EventsController < ApplicationController
   def done
     @event = Event.find(params[:id])
     @entries = Entry.where(event_id: @event.id).count
-    binding.pry
     if @entries == @event.capacity
       @event_buyer = Event.find(params[:id])
       @event_buyer.update(buyer_id: current_user.id)
