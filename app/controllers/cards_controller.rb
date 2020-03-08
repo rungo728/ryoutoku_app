@@ -1,10 +1,11 @@
 class CardsController < ApplicationController
   
   require "payjp" 
-  before_action :set_card
+  # before_action :set_card
 
   def new
     # cardがすでに登録済みの場合、showのページに戻します。
+    @card = Card.new
     @card = Card.where(user_id: current_user.id).first
     redirect_to action: "show" if @card.present?    
   end
@@ -14,15 +15,17 @@ class CardsController < ApplicationController
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     # jsで作成したpayjpTokenがちゃんと入っているか？
     if params['payjp-token'].blank?
+      binding.pry
       redirect_to action: "new"
     else
       # トークンがちゃんとあれば進めて、PAY.JPに登録されるユーザーを作成します。
       customer = Payjp::Customer.create(
-      description: '登録テスト',  # なくてもOK
-      email: current_user.email, # なくてもOK
+      # description: '登録テスト',  # なくてもOK
+      # email: current_user.email, # なくてもOK
+      # metadata: {user_id: current_user.id} # なくてもOK
       # 直前のnewアクションで発行され、送られてくるトークンをここで顧客に紐付けて永久保存する
-      card: params['payjp-token'],
-      metadata: {user_id: current_user.id} # なくてもOK
+      card: params['payjp-token']
+      
       )
       # PAY.JPのユーザーが作成できたので、cardモデルを登録します。
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
@@ -37,7 +40,7 @@ class CardsController < ApplicationController
   end
 
   def show
-
+    @card = Card.where(user_id: current_user.id).first
     # すでにクレジットカードが登録しているか？  
     if @card.present?
       # 登録している場合,PAY.JPからカード情報を取得する
@@ -89,9 +92,9 @@ class CardsController < ApplicationController
 
   private
 
-  def set_card
-    @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
-  end
+  # def set_card
+  #   @card = Card.where(user_id: current_user.id).first if Card.where(user_id: current_user.id).present?
+  # end
 end
 
 
