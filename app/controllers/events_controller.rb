@@ -20,7 +20,6 @@ class EventsController < ApplicationController
       @anotherEntries = Entry.where(event_id: myEventIds).where(user_id: @user.id).order("updated_at DESC").limit(10)
       # 自分が参加していないイベントを出した場合には下記の記述でOK
       # @anotherEntries = Entry.where(event_id: myEventIds).where('user_id != ?', @user.id).order("updated_at DESC").limit(10)
-      binding.pry
     end
   end
 
