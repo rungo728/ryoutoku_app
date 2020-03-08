@@ -152,16 +152,14 @@
   <% if user_signed_in? %> 
     <div class="event-index">
       <ul class="event-index__list">
-        <%# データベースから並べる時に使用 %>
+        <%# データベースから並べる時に使用 %> 
         <% @anotherEntries.each do |entry| %>
-          <%#<%= Message.find_by(id: entry.event.message_ids.last).content %> 
           <li class="event-index__item">  
             <%=link_to event_messages_path(entry.event),class: "events-link" do %>
               <div class="event-box">
                 <span><%= entry.event.prefecture.name %>
                 </span>
                 <%# 画像アップロードするエリア %>
-                <%# <%= image_tag "ryouri2.jpeg" %>
                 <%= image_tag(entry.event.images.first.content.url)unless entry.event.images.first.content.nil? %>
               </div>
               <div class="event-title"> 

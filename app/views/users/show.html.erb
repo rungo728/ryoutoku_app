@@ -19,7 +19,7 @@
         </div>
         <%# 一時的にここからカード情報登録ページに遷移させる %>
         <div class="payment-registration">
-          <%= link_to new_card_path(current_user.id), class:"btn-default btn-green" do%>
+          <%= link_to new_card_path, class:"btn-default btn-green" do%>
             <i class="far fa-credit-card"></i>
               クレジットカードを追加する
           <% end %>
