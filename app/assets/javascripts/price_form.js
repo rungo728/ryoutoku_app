@@ -41,9 +41,16 @@ function Climit(){
 function update_price(){
     
   var result = $('#price').val() - $('#discount').val();
+  // ビューに表示させるため
   $('#total').text(result);
+  // ビューのvalueで受け取るため
+  document.getElementById("result").value = result ;
   // $('.update').data('sample')
+  console.log(document.getElementById("result").value);
+
 }
+
+
 $(function() {
 $('input[type="text"]').on('keyup change', function() {
   update_price();
