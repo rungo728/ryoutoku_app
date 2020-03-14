@@ -83,7 +83,9 @@
           </table>
           <div class="event_reservation__price">
             イベント予約価格 ￥
-            <span class="total" id="total" > </span>
+            <%# <%= f.hidden_field :price, value:"" ,id: "total" ,type: "hidden", size: "40",class: 'total' %> 
+            <span class="total" id="total"></span> 
+            <input id="result" type="hidden" value=""> 
           </div>
         </div>
       </section>
