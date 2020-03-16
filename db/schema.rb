@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_170115) do
     t.integer "capacity", null: false
     t.string "place"
     t.integer "price", null: false
+    t.integer "result"
     t.integer "exhibitor_id", null: false
     t.integer "buyer_id"
     t.bigint "prefecture_id", null: false
