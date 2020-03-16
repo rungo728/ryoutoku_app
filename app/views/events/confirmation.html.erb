@@ -78,19 +78,20 @@
             <td><font color="#ff0000">■</font><b><font color="#ff0000">割引金額</font></b></td>
             <td>￥
             <%# <%= f.text_field :total, value: "0" ,id: "discount" ,type: "text", size: "40",class: 'input-field' %>
-            <input id="discount" type="text" name="total" value="0" ></td>
+            <input id="discount" type="text" name="total" value="0" >
+            </td>
             </tr>
           </table>
           <div class="event_reservation__price">
             イベント予約価格 ￥
-            <%# <%= f.hidden_field :price, value:"" ,id: "total" ,type: "hidden", size: "40",class: 'total' %> 
             <span class="total" id="total"></span> 
-            <input id="result" type="hidden" value=""> 
+            <%# <input id="result" type="hidden" value="">  %>
+            <%= f.text_field :result, value:@event_result,id: "result" ,class: 'result' %>
           </div>
         </div>
       </section>
       <div class="event-reservation-btn">
-        <script class="payjp-button" src="https://checkout.pay.jp/" type="text/javascript" data-key="pk_test_6ad853c00546da3289e5579b" data-text="予約を確定する"></script>
+        <script class="payjp-button" src="https://checkout.pay.jp/" type="text/javascript" data-key="pk_test_738f868bb1bc43982dd03d7d" data-text="予約を確定する"></script>
       </div>
     <% end %>
     <%# </form> %>
