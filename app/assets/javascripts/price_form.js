@@ -44,9 +44,8 @@ function update_price(){
   // ビューに表示させるため
   $('#total').text(result);
   // ビューのvalueで受け取るため
-  document.getElementById("result").value = result ;
+  document.getElementById("result").value = result;
   // $('.update').data('sample')
-  console.log(document.getElementById("result").value);
 
 }
 
