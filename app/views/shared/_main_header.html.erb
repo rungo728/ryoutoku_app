@@ -32,8 +32,7 @@
         </div>
         <%# 仮置きのクラス、あとでログアウトページも作る予定 %>
         <div class="user-logout">
-         <%=  link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-default btn-green"%>
-        
+         <%=  link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn-default btn-green"%>        
       </div> 
     <% else %> 
       <%# 未ログイン時 %>
