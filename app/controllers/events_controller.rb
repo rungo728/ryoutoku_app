@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   before_action :get_user
-  before_action :set_event,only: [:edit, :update]
+  before_action :set_event,only: [:confirmation, :done,:edit, :update]
 
   def index
     #カテゴリーごとに並べる
@@ -68,21 +68,23 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @user = User.find_by(id: @event.exhibitor_id)
-    if Entry.where(:user_id => current_user.id, :event_id => @event.id).present?
-      @messages = @event.messages.includes(:user)
-      @message = Message.new
-      @entries = @event.entries.includes(:user)
-    else
-      # redirect_back(fallback_location: root_path)
+    if user_signed_in?
+      if Entry.where(:user_id => current_user.id, :event_id => @event.id).present?
+        @messages = @event.messages.includes(:user)
+        @message = Message.new
+        @entries = @event.entries.includes(:user)
+      else
+        # redirect_back(fallback_location: root_path)
 
+      end
     end
   end
 
   # イベント予約確認画面
   def confirmation
-    @event = Event.find(params[:id])
     @entry = Entry.new
     @card = Card.where(user_id: current_user.id).first
+    # @events = Event.new
     if @card.present?
       # 登録している場合,PAY.JPからカード情報を取得する
       # PAY.JPの秘密鍵をセットする。
@@ -103,6 +105,8 @@ class EventsController < ApplicationController
   # イベント予約の為にpayjpへ決済情報とトークンを送る際の定義を記述
   def buy
     @event = Event.find(params[:id])
+    # @events = Event.new(:result => @event_result)
+    # @events.save
     @entry = Entry.new(:event_id => @event.id, :user_id => current_user.id)
     @entry.save
     @card = Card.where(user_id: current_user.id).first
@@ -110,6 +114,7 @@ class EventsController < ApplicationController
     # 請求を発行
     charge = Payjp::Charge.create(
     amount: @event.price,#支払金額
+    # amount: @event_result,#支払金額
     # customer:  @card.customer_id,#顧客ID
     card: params['payjp-token'],
     currency: 'jpy'
@@ -119,7 +124,6 @@ class EventsController < ApplicationController
 
   # イベント予約完了画面
   def done
-    @event = Event.find(params[:id])
     @entries = Entry.where(event_id: @event.id).count
     if @entries == @event.capacity
       @event_buyer = Event.find(params[:id])
@@ -130,7 +134,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:title, :description, :capacity,:place,:price,:prefecture_id,:category_id, images_attributes: [:id, :event_id, :content, :_destroy ]).merge(exhibitor_id: current_user.id)
+    params.require(:event).permit(:title, :description, :capacity,:place,:price,:result,:prefecture_id,:category_id, images_attributes: [:id, :event_id, :content, :_destroy ]).merge(exhibitor_id: current_user.id)
     #開催場所・日時・料理工程ページ作成したらpermitに入れる
     # ,address_attributes: [:id, :event_id, :date, :time, :postcode,:city,:address,:building,:phone_number,:figure],cook_attributes: [:id,:event_id,:level1,:level2,:level3,:level4,:level5]
   end
