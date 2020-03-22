@@ -90,73 +90,7 @@
     }
   }
 }
-
-@media screen and (min-width: 768px){
-.toppage-container{
-  .event-index{
-    &__list{
-      .event-index__item{
-        width: 20%;
-        padding: 10px;
-        .events-link{
-          .event-title{
-            height: 70px;
-          }
-        }
-      }
-    }
-  }
-}
-}
-text {
-  /* 色はお好みで */
-  stroke: black;
-  /* 色はお好みで */
-  fill: #02c39a;
-  /* 文字が大きい方がアニメーションが綺麗なので50pxを指定 */
-  font-size: 35px;
-  /* 100%だと最後まで表示されないので多めに設定する */
-  stroke-dasharray: 150% 150%;
-  /* 線が細いほうがアニメーションが綺麗なので0.5pxを指定 */
-  stroke-width: 0.5px;
-  -webkit-animation: stroke-anim 5s linear;
-  animation: stroke-anim 5s linear;
-}
-@-webkit-keyframes stroke-anim {
-0% {
-  /* 100%だと最後まで表示されないので多めに設定する */
-  stroke-dashoffset: 200%;
-  fill:transparent;
-}
-50% {
-  fill:transparent;
-}
-100% {
-  stroke-dashoffset: 0%;
-  fill:#02c39a;
-}
-}
-
-@keyframes stroke-anim {
-0% {
-  /* 100%だと最後まで表示されないので多めに設定する */
-  stroke-dashoffset: 200%;
-  fill:transparent;
-}
-50% {
-  fill:transparent;
-}
-100% {
-  stroke-dashoffset: 0%;
-  fill:#02c39a;
-}
-}
-@media screen and (min-width: 768px) {
-.toppage-logo {
-  font-size: 35px;
-}
-}
-@media screen and(max-width: 500px) {
+@media screen and(max-width: 550px) {
 .header-top{
   width: 100%;
   height: 65px;
@@ -248,5 +182,70 @@ text {
       }
     }
   }
+}
+}
+@media screen and (min-width: 768px){
+.toppage-container{
+  .event-index{
+    &__list{
+      .event-index__item{
+        width: 20%;
+        padding: 10px;
+        .events-link{
+          .event-title{
+            height: 70px;
+          }
+        }
+      }
+    }
+  }
+}
+}
+text {
+  /* 色はお好みで */
+  stroke: black;
+  /* 色はお好みで */
+  fill: #02c39a;
+  /* 文字が大きい方がアニメーションが綺麗なので50pxを指定 */
+  font-size: 35px;
+  /* 100%だと最後まで表示されないので多めに設定する */
+  stroke-dasharray: 150% 150%;
+  /* 線が細いほうがアニメーションが綺麗なので0.5pxを指定 */
+  stroke-width: 0.5px;
+  -webkit-animation: stroke-anim 5s linear;
+  animation: stroke-anim 5s linear;
+}
+@-webkit-keyframes stroke-anim {
+0% {
+  /* 100%だと最後まで表示されないので多めに設定する */
+  stroke-dashoffset: 200%;
+  fill:transparent;
+}
+50% {
+  fill:transparent;
+}
+100% {
+  stroke-dashoffset: 0%;
+  fill:#02c39a;
+}
+}
+
+@keyframes stroke-anim {
+0% {
+  /* 100%だと最後まで表示されないので多めに設定する */
+  stroke-dashoffset: 200%;
+  fill:transparent;
+}
+50% {
+  fill:transparent;
+}
+100% {
+  stroke-dashoffset: 0%;
+  fill:#02c39a;
+}
+}
+@media screen and (min-width: 768px) {
+.toppage-logo {
+  font-size: 35px;
 }
 }
