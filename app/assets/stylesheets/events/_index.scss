@@ -218,7 +218,7 @@ text {
 @-webkit-keyframes stroke-anim {
 0% {
   /* 100%だと最後まで表示されないので多めに設定する */
-  stroke-dashoffset: 150%;
+  stroke-dashoffset: 200%;
   fill:transparent;
 }
 50% {
@@ -233,7 +233,7 @@ text {
 @keyframes stroke-anim {
 0% {
   /* 100%だと最後まで表示されないので多めに設定する */
-  stroke-dashoffset: 150%;
+  stroke-dashoffset: 200%;
   fill:transparent;
 }
 50% {
