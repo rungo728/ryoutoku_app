@@ -90,7 +90,7 @@
     }
   }
 }
-@media screen and(max-width: 550px) {
+@media screen and(max-width: 500px) {
 .header-top{
   width: 100%;
   height: 65px;
@@ -108,7 +108,7 @@
     max-height: 460px;
     .toppage-logo{
       color:#02c39a;
-      font-size: 25px;
+      font-size: 23px;
       span{
         position: relative;
         top: 10px; //topとleft同時指定で斜めの動き
