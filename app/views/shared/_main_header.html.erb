@@ -4,12 +4,12 @@
     <% if user_signed_in? %> 
       <%= link_to event_path(current_user.id), class: "join-btn" do %>
         <i class="fas fa-calendar-check"></i>
-        <span>参加してみよう！</span>
+        <span>参加する？</span>
       <% end %>
     <% else %>
       <%= link_to root_path, class: "join-btn" do %>
       <i class="fas fa-calendar-check"></i>
-      <span>参加してみよう！</span>
+      <span>参加する？</span>
       <% end %>
     <% end %>
   </div>
