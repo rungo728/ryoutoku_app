@@ -6,11 +6,12 @@
   <div class="header-icon">
     <i class="fas fa-mitten"></i>
   </div>
-  <h1 class="event-name">管理栄養士による晩ごはん提供イベント</h1>
+  <div class="event-name"> 
+    <%= @event.title %>
+  </div>
     <p class="event-name__description">
       <%# 仮の説明書き（のちにサーバーサイドで編集） %>
-      前半で一緒に季節のお野菜やお魚を使い、料理工程の一部を体験しながら、晩ごはんを作ります。
-      前半で作った料理を後半でご提供です。お楽しみに！
+      <%= @event.description %>
     </p>
   <div class="event-name__detail">
     <div class="event-name__detail--image">
