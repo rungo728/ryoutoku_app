@@ -86,7 +86,7 @@
             イベント予約価格 ￥
             <span class="total" id="total"></span> 
             <%# <input id="result" type="hidden" value="">  %>
-            <%= f.text_field :result, value:@event_result,id: "result" ,class: 'result' %>
+            <%= f.hidden_field :result, value:@event_result,id: "result" ,class: 'result' %>
           </div>
         </div>
       </section>
