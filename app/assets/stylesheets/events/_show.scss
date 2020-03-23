@@ -122,7 +122,6 @@
     background: #7da4cd;
     vertical-align: middle;
     .showroom-header{
-      min-width: 460px;
       height: 80px;
       &__title{
         text-align: center;
@@ -153,18 +152,16 @@
 }
 @media screen and(max-width: 480px) {
 .l-container{
+  max-width: 360px;
   .show-content{
-    max-width: 360px;
     height: 100%;
     background: #7da4cd;
     vertical-align: middle;
     margin: auto;
     position: static;
     .showroom-header{
-      max-width: 360px;
       height: 80px;
       &__title{
-        max-width: 360px;
         text-align: center;
         font-size: 20px;
         font-weight: bold;
@@ -175,7 +172,6 @@
       }
     }
     .dmroom-form{
-      max-width: 360px;
       bottom: 0;
       padding: 10px 30px 50px;
       box-sizing: border-box;
