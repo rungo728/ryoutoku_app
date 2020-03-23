@@ -151,7 +151,7 @@
     }
   }
 }
-@media screen and(max-width: 500px) {
+@media screen and(max-width: 480px) {
   .l-container{
     vertical-align: middle;
     .show-content{
@@ -160,6 +160,7 @@
       background: #7da4cd;
       vertical-align: middle;
       .showroom-header{
+        max-width: 480px;
         height: 80px;
         &__title{
           text-align: center;
