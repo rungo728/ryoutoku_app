@@ -183,6 +183,7 @@
       border: 1px solid #EDEDED;
       border-radius: 2px;
       padding: 0 16px;
+      width: 135px;
       .fa-calendar-check{
         line-height: 40px;
         height: 40px;
@@ -204,7 +205,7 @@
     line-height: 50px;
     &__registration{
       color: rgb(255, 255, 255);
-      margin: 7px 8px;
+      margin-left: auto;
       text-align: center;
       font-size: 15px;
       border-width: 10px;
@@ -214,6 +215,7 @@
       background: #02c39a;
       border-color: #02c39a;
       line-height: 40px;
+
     }
     &__login{
       color: #02C39A;
