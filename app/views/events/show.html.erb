@@ -15,10 +15,12 @@
   <div class="event-name__detail">
     <div class="event-name__detail--image">
       <div class="information-event_first-image">
-        <%= image_tag 'cookingimage1.png',style: "width: 300px; height: 250px;" %>
+        <%= image_tag @event.images.first.content.url,style: "width: 300px; height: 250px;" %>
         <%# ここに複数のイベント写真を載せる予定 %>
         <div class="event-images">
-          <%= image_tag 'cookingimage2.png' %>
+          <% @event.images.each do |image| %>
+            <%= image_tag image.content.url %>
+          <% end %>
         </div>
       </div>
       <div class="information-event_content-image2">
